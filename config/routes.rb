@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'volunteers/index'
-  get 'volunteers/new'
-  get 'volunteers/edit'
-  get 'volunteers/show'
+  resources :volunteers
+  root 'volunteers#index'
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
