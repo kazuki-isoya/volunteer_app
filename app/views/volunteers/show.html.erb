@@ -1,2 +1,16 @@
-<h1>Volunteers#show</h1>
-<p>Find me in app/views/volunteers/show.html.erb</p>
+<div class="volunteers_body">
+  <p>タイトル：<%= @volunteer.title %></p>
+  <p>詳細：<%= @volunteer.describe %></p>
+  <p>
+    画像:
+    <%= @volunteer.image %>
+  </p>
+  <p>住所：<%= @volunteer.address %></p>
+  <p>定員：<%= @volunteer.capacity %></p>
+  <p>日付：<%= @volunteer.date %></p>
+  <br>
+</div>
+<footer>
+    <%= link_to '編集', edit_volunteer_path(@volunteer), class: 'btn btn-primary' %>
+    <%= link_to '戻る', volunteers_path, class: 'btn btn-primary' %>
+</footer>

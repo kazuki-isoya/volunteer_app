@@ -1,2 +1,7 @@
-<h1>Volunteers#new</h1>
-<p>Find me in app/views/volunteers/new.html.erb</p>
+<div class="volunteers_body">
+  <h1>新しい依頼を作成</h1>
+  <%= render 'form', volunteer: @volunteer %>
+</div>
+<footer>
+  <%= link_to '戻る', volunteers_path, class: 'btn btn-primary' %>
+</footer>

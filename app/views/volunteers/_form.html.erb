@@ -1,0 +1,35 @@
+<%= form_with(model: volunteer, local: true) do |form| %>
+  <% if volunteer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(volunteer.errors.count, "エラー") %> 画像が保存できませんでした:</h2>
+      <ul>
+      <% volunteer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= form.label :依頼するボランティアのタイトル %>
+    <%= form.text_field :title, class: 'form-control' %>
+    <br>
+    <%= form.label :ボランティアの詳細 %>
+    <%= form.text_field :describe, class: 'form-control' %>
+    <br>
+    <%= form.label :画像 %>
+    <%= image_tag(@volunteer.image.url) if @volunteer.image && @volunteer.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+    <br>
+    <%= form.label :住所 %>
+    <%= form.text_field :address %>
+    <br>
+    <%= form.label :定員 %>
+    <%= form.text_field :capacity %>
+    <br>
+    <%= form.label :日時 %>
+    <%= form.text_field :date %>
+  </div>
+  <br>
+    <%= form.submit  class: 'btn btn-primary' %>
+<% end %>

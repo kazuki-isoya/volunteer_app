@@ -1,2 +1,10 @@
-<h1>Volunteers#edit</h1>
-<p>Find me in app/views/volunteers/edit.html.erb</p>
+<div class="volunteers_body">
+  <h1>ボランティアを修正</h1>
+  <div class="form-group">
+    <%= render 'form', volunteer: @volunteer %>
+  </div>
+</div>
+<footer>
+  <%= link_to '詳細を確認', @volunteer, class: 'btn btn-primary' %>
+  <%= link_to '一覧へ戻る', volunteers_path, class: 'btn btn-primary' %>
+</footer>

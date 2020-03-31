@@ -43,4 +43,8 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.find(params[:id])
   end
 
+  def volunteer_params
+    params.require(:volunteer).permit(:title, :describe, :image, :address, :capacity, :date) # :image_cacheを削除
+  end
+
 end
