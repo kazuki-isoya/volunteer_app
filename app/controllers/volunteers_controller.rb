@@ -11,6 +11,7 @@ class VolunteersController < ApplicationController
 
   def create
     @volunteer = Volunteer.new(volunteer_params)
+    @volunteer.user_id = current_user.id
     if @volunteer.save
       redirect_to volunteers_path, notice: 'ボランティア募集を作成しました！'
     else
@@ -19,13 +20,20 @@ class VolunteersController < ApplicationController
   end
 
   def edit
+    if @volunteer.user_id != current_user.id
+      redirect_to root_path, alert: 'not your task!'
+    end
   end
 
   def update
-    if @volunteer.update(volunteer_params)
-      redirect_to volunteers_path, notice: 'ボランティア内容を編集しました。'
+    if @volunteer.user_id == current_user.id
+      if @volunteer.update(volunteer_params)
+        redirect_to volunteers_path, notice: 'ボランティア内容を編集しました。'
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to root_path, alert: '実行できません'
     end
   end
 
@@ -33,8 +41,12 @@ class VolunteersController < ApplicationController
   end
 
   def destroy
-    @volunteer.destroy
-    redirect_to volunteers_path, notice: 'ボランティアを削除しました。'
+    if @volunteer.user_id == current_user.id
+      @volunteer.destroy
+      redirect_to volunteers_path, notice: 'ボランティアを削除しました。'
+    else
+      redirect_to root_path, alert: '実行できません'
+    end
   end
 
   private
