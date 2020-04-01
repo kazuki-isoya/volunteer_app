@@ -1,7 +1,12 @@
 class OrderManagementsController < ApplicationController
   def create
-    order_management = current_user.order_managements.create(volunteer_id: params[:volunteer_id])
-    redirect_to volunteers_path, notice: "#{order_management.volunteer.user.name}さんの依頼を受注しました"
+    @volunteer = Volunteer.find(params[:volunteer_id])
+    if @volunteer.user_id != current_user.id
+      order_management = current_user.order_managements.create(volunteer_id: params[:volunteer_id])
+      redirect_to volunteers_path, notice: "#{order_management.volunteer.user.name}さんの依頼を受注しました"
+    else
+      redirect_to volunteers_path, alert: "自分の依頼は受注できませんよ"
+    end
   end
 
   def destroy

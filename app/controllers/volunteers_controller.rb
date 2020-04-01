@@ -38,7 +38,7 @@ class VolunteersController < ApplicationController
   end
 
   def show
-    @order_management = current_user.order_managements.find_by(volunteer_id: @volunteer.id)
+    @order_management = current_user.order_managements.find_by(volunteer_id: @volunteer.id) if user_signed_in?
   end
 
   def destroy
