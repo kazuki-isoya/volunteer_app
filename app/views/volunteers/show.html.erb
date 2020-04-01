@@ -1,16 +1,27 @@
-<div class="volunteers_body">
-  <p>タイトル：<%= @volunteer.title %></p>
-  <p>詳細：<%= @volunteer.describe %></p>
-  <p>
-    画像:
-    <%= @volunteer.image %>
-  </p>
-  <p>住所：<%= @volunteer.address %></p>
-  <p>定員：<%= @volunteer.capacity %></p>
-  <p>日付：<%= @volunteer.date %></p>
-  <br>
-</div>
+<p>タイトル：<%= @volunteer.title %></p>
+<p>詳細：<%= @volunteer.describe %></p>
+<p>
+  画像:
+  <%= @volunteer.image %>
+</p>
+<p>住所：<%= @volunteer.address %></p>
+<p>定員：<%= @volunteer.capacity %></p>
+<p>日付：<%= @volunteer.date %></p>
+<p><span>受注した人数: </span><%= @volunteer.contractor.count %></p>
+<br>
+<!-- 受注機能 -->
+<% if user_signed_in? %>
+  <% if @order_management.present? %>
+    <%= link_to '受注解除する', order_managements_path(id: @order_management.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to '受注する', order_managements_path(volunteer_id: @volunteer.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
 <footer>
-    <%= link_to '編集', edit_volunteer_path(@volunteer), class: 'btn btn-primary' %>
-    <%= link_to '戻る', volunteers_path, class: 'btn btn-primary' %>
+  <% if user_signed_in? %>
+    <% if @volunteer.user.id == current_user.id  %>
+      <%= link_to '編集', edit_volunteer_path(@volunteer), class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+  <%= link_to '戻る', volunteers_path, class: 'btn btn-primary' %>
 </footer>

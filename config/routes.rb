@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :volunteers do
-    resource :order_managements, only: [:create, :destroy]
-  end
+  resources :volunteers
+  resource :order_managements, only: [:create, :destroy]
+
   root 'volunteers#index'
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
