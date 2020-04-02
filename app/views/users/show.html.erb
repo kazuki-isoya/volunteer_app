@@ -1,0 +1,6 @@
+<h1>ユーザー詳細</h1>
+<p>名前 : <%= @user.name %></p>
+<p>メールアドレス : <%= @user.email %></p>
+<p>アイコン : <%= @user.icon %></p>
+
+<%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id) %>

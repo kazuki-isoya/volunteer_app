@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'users/show'
+  devise_for :users, controllers: {
+        registrations: 'users/registrations'
+        }
   resources :volunteers
   resource :order_managements, only: [:create, :destroy]
+  resources :users, only: [:show]
 
   root 'volunteers#index'
   if Rails.env.development?
