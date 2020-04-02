@@ -7,6 +7,12 @@
 <p>住所：<%= @volunteer.address %></p>
 <p>定員：<%= @volunteer.capacity %></p>
 <p>日付：<%= @volunteer.date %></p>
+<strong>カテゴリー</strong>
+<ul>
+  <% @volunteer.categories.each do |category| %>
+    <li><%= category.name %></li>
+  <% end %>
+</ul>
 <p><span>受注した人数: </span><%= @volunteer.contractor.count %></p>
 <br>
 <!-- 受注機能 -->

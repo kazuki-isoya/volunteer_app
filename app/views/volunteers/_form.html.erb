@@ -12,24 +12,47 @@
   <div class="form-group">
     <%= form.label :依頼するボランティアのタイトル %>
     <%= form.text_field :title, class: 'form-control' %>
-    <br>
+  </div>
+
+  <div class="field">
     <%= form.label :ボランティアの詳細 %>
     <%= form.text_field :describe, class: 'form-control' %>
-    <br>
+  </div>
+
+  <div class="field">
     <%= form.label :画像 %>
     <%= image_tag(@volunteer.image.url) if @volunteer.image && @volunteer.image.url %>
+  </div>
+
+  <div class="field">
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
-    <br>
+  </div>
+
+  <div class="field">
     <%= form.label :住所 %>
     <%= form.text_field :address %>
-    <br>
+  </div>
+
+  <div class="field">
     <%= form.label :定員 %>
     <%= form.text_field :capacity %>
-    <br>
+  </div>
+
+  <div class="field">
     <%= form.label :日時 %>
     <%= form.text_field :date %>
   </div>
-  <br>
+
+
+  <div class="field">
+    <% Category.all.each do |category| %>
+      <%= form.check_box :category_ids, { multiple: true, checked: category[:checked],
+         disabled: category[:disabled], include_hidden: false }, category[:id] %>
+      <label><%= category.name %></label>
+    <% end %>
+  </div>
+
+
     <%= form.submit  class: 'btn btn-primary' %>
 <% end %>
