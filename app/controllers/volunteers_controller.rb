@@ -1,8 +1,17 @@
 class VolunteersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_volunteer, only: [:edit, :update, :show, :destroy]
+  before_action :search_params, only: [:index, :search]
+
   def index
-    @volunteers = Volunteer.all
+    @q = Volunteer.ransack(params[:q])
+    @categories = Category.all
+    @volunteers = @q.result.includes(:user) # :categories
+  end
+
+  def search
+    @q = Volunteer.search(search_params)
+    @volunteers = @q.result.includes(:user)
   end
 
   def new
@@ -58,6 +67,10 @@ class VolunteersController < ApplicationController
 
   def volunteer_params
     params.require(:volunteer).permit(:title, :describe, :image, :address, :capacity, :date, category_ids: []) # :image_cacheを削除
+  end
+
+  def search_params
+    params.require(:q).permit(:title_cont, :categories_id_eq)
   end
 
 end
