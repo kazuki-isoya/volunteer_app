@@ -4,4 +4,5 @@ class Volunteer < ApplicationRecord
   has_many :contractor, through: :order_managements, source: :user, dependent: :destroy
   has_many :categorizings
   has_many :categories, through: :categorizings
+  has_many :comments, dependent: :destroy
 end

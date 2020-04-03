@@ -1,7 +1,7 @@
 class VolunteersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_volunteer, only: [:edit, :update, :show, :destroy]
-  before_action :search_params, only: [:index, :search]
+  before_action :search_params, only: [:search]
 
   def index
     @q = Volunteer.ransack(params[:q])
@@ -48,6 +48,8 @@ class VolunteersController < ApplicationController
 
   def show
     @order_management = current_user.order_managements.find_by(volunteer_id: @volunteer.id) if user_signed_in?
+    @comments = @volunteer.comments.includes(:user)
+    @comment = Comment.new
   end
 
   def destroy
