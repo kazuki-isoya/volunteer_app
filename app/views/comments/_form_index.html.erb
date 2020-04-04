@@ -1,0 +1,15 @@
+<h3>コメント一覧</h3>
+<% @comments.each do |comment| %>
+  <div>
+    <a href="/users/<%= comment.user.id %>"><%= comment.user.name %></a>
+    <%= comment.content %>
+    <hr>
+  </div>
+<% end %>
+
+<%= form_for [@volunteer, @comment] do |form| %>
+  <div class="form-group">
+    <%= form.text_field :content  %>
+  </div>
+  <%= form.submit 'コメントする' %>
+<% end %>

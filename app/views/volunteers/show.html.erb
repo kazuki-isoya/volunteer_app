@@ -1,4 +1,5 @@
 <p>タイトル：<%= @volunteer.title %></p>
+<p>依頼者：<%= @volunteer.user.name %></p>
 <p>詳細：<%= @volunteer.describe %></p>
 <p>
   画像:
@@ -26,21 +27,7 @@
   <% end %>
 <% end %>
 
-<h3>コメント一覧</h3>
-<% @comments.each do |comment| %>
-  <div>
-    <a href="/users/<%= @volunteer.user.id %>"><%= comment.user.name %></a>
-    <%= comment.content %>
-    <hr>
-  </div>
-<% end %>
-
-<%= form_for [@volunteer, @comment] do |form| %>
-  <div class="form-group">
-    <%= form.text_field :content  %>
-  </div>
-  <%= form.submit 'コメントする' %>
-<% end %>
+<%= render 'comments/form_index' %>
 
 <footer>
   <% if user_signed_in? %>
