@@ -2,5 +2,9 @@
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
 <p>アイコン : <%= @user.icon %></p>
+<p>評価したユーザー数：<%= @user.evaluated_users.count %></p>
+
+<%= render 'good_evaluations/evaluate_button', user: @user %>
+
 
 <%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id) %>

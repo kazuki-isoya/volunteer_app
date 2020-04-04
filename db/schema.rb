@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_021209) do
+ActiveRecord::Schema.define(version: 2020_04_03_120858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 2020_04_03_021209) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_comments_on_user_id"
     t.index ["volunteer_id"], name: "index_comments_on_volunteer_id"
+  end
+
+  create_table "good_evaluations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "evaluate_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evaluate_user_id"], name: "index_good_evaluations_on_evaluate_user_id"
+    t.index ["user_id", "evaluate_user_id"], name: "index_good_evaluations_on_user_id_and_evaluate_user_id", unique: true
+    t.index ["user_id"], name: "index_good_evaluations_on_user_id"
   end
 
   create_table "order_managements", force: :cascade do |t|
@@ -90,5 +100,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_021209) do
   add_foreign_key "categorizings", "volunteers"
   add_foreign_key "comments", "users"
   add_foreign_key "comments", "volunteers"
+  add_foreign_key "good_evaluations", "users"
+  add_foreign_key "good_evaluations", "users", column: "evaluate_user_id"
   add_foreign_key "volunteers", "users"
 end

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'search', to: 'volunteers#search'
   resource :order_managements, only: [:create, :destroy]
   resources :users, only: [:show]
+  resources :good_evaluations, only: [:create, :destroy]
+
 
   root 'volunteers#index'
   if Rails.env.development?

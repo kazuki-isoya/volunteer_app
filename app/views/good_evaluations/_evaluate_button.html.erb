@@ -1,0 +1,13 @@
+<% unless current_user == user %>
+  <% if current_user.evaluating?(user) %>
+    <%= form_for(current_user.good_evaluations.find_by(evaluate_user_id: user.id), html: { method: :delete }) do |f| %>
+      <%= hidden_field_tag :evaluate_user_id, user.id %>
+      <%= f.submit '解除', class: 'btn btn-danger btn-block' %>
+    <% end %>
+  <% else %>
+    <%= form_for(current_user.good_evaluations.build) do |f| %>
+      <%= hidden_field_tag :evaluate_user_id, user.id %>
+      <%= f.submit 'いいね', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  <% end %>
+<% end %>
