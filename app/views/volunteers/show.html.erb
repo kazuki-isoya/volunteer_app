@@ -3,7 +3,7 @@
 <p>詳細：<%= @volunteer.describe %></p>
 <p>
   画像:
-  <%= @volunteer.image %>
+  <%= image_tag @volunteer.image_url if @volunteer.image.present?  %>
 </p>
 <p>住所：<%= @volunteer.address %></p>
 <p>定員：<%= @volunteer.capacity %></p>
@@ -27,6 +27,7 @@
   <% end %>
 <% end %>
 
+<!-- コメント機能 -->
 <%= render 'comments/form_index' %>
 
 <footer>
