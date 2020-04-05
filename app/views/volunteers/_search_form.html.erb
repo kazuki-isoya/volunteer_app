@@ -1,14 +1,17 @@
-<%= search_form_for(@q, url:volunteers_path) do |f| %>
-  <div class="form-group">
-    <%= f.label :title_cont, 'タイトル' %>
-    <%= f.search_field :title_cont %>
-  </div>
+<form class="form-inline">
+  <%= search_form_for(@q, url:volunteers_path) do |f| %>
+    <div class="form-group mb-2">
+      <label><%= f.label :title_cont, 'タイトル' %></label>
+      <label><%= f.search_field :title_cont %></label>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :categories_id_eq, 'カテゴリー' %>
-    <%= f.collection_select :categories_id_eq, @categories, :id, :name, :include_blank => '指定なし' %>
-  </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label><%= f.label :categories_id_eq, 'カテゴリー' %></label>
+      <label>
+        <%= f.collection_select :categories_id_eq, @categories, :id, :name, :include_blank => '指定なし' %>
+      </label>
+    </div>
 
-    <%= f.submit ("検索") , class: 'search-btn'%>
-
-<% end %>
+    <%= f.submit ("検索") , class: "btn btn-primary mb-2" %>
+  <% end %>
+</form>
