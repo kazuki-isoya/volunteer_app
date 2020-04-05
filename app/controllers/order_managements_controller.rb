@@ -11,6 +11,8 @@ class OrderManagementsController < ApplicationController
   end
 
   def destroy
+    @volunteer = current_user.order_managements.find_by(id: params[:id]).volunteer
+    OrderManagementMailer.cancel_mail(@volunteer, current_user).deliver
     order_management = current_user.order_managements.find_by(id: params[:id]).destroy
     redirect_to volunteers_path, notice: "#{order_management.volunteer.user.name}さんの依頼を受注解除しました"
   end
