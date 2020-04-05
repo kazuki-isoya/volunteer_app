@@ -55,6 +55,7 @@ class VolunteersController < ApplicationController
 
   def destroy
     if @volunteer.user_id == current_user.id
+      VolunteerMailer.delete_mail(@volunteer).deliver
       @volunteer.destroy
       redirect_to volunteers_path, notice: 'ボランティアを削除しました。'
     else

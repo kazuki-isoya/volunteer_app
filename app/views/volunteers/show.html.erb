@@ -15,6 +15,12 @@
   <% end %>
 </ul>
 <p><span>受注した人数: </span><%= @volunteer.contractors.count %></p>
+<p><span>受注した人</span></p>
+<ul>
+  <% @volunteer.contractors.each do |contractor| %>
+    <li><%= contractor.name %></li>
+  <% end %>
+</ul>
 <br>
 <!-- 受注機能 -->
 <% if user_signed_in? %>
