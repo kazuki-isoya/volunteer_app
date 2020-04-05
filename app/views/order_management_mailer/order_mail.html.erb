@@ -1,0 +1,12 @@
+<h1>ボランティアを受注されました</h1>
+<h4>title: <%= @volunteer.title %></h4>
+<h4>ボランティア内容の確認</h4>
+<p>詳細: <%= @volunteer.describe %></p>
+<p><span>受注している人</span></p>
+<ul>
+  <% @volunteer.contractors.each do |contractor| %>
+    <li><%= contractor.name %></li>
+  <% end %>
+</ul>
+<p>受注した人</p>
+<%= @user.name %>
