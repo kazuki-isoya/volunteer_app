@@ -14,7 +14,7 @@
     <li><%= category.name %></li>
   <% end %>
 </ul>
-<p><span>受注した人数: </span><%= @volunteer.contractor.count %></p>
+<p><span>受注した人数: </span><%= @volunteer.contractors.count %></p>
 <br>
 <!-- 受注機能 -->
 <% if user_signed_in? %>
