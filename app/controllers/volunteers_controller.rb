@@ -22,6 +22,7 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new(volunteer_params)
     @volunteer.user_id = current_user.id
     if @volunteer.save
+      VolunteerMailer.volunteer_mail(@volunteer).deliver
       redirect_to volunteers_path, notice: 'ボランティア募集を作成しました！'
     else
       render :new
@@ -68,7 +69,7 @@ class VolunteersController < ApplicationController
   end
 
   def volunteer_params
-    params.require(:volunteer).permit(:title, :describe, :image, :image_cache, :remove_image, :address, :capacity, :date, category_ids: []) 
+    params.require(:volunteer).permit(:title, :describe, :image, :image_cache, :remove_image, :address, :capacity, :date, category_ids: [])
   end
 
   def search_params
