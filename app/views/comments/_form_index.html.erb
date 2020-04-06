@@ -7,9 +7,11 @@
   </div>
 <% end %>
 
-<%= form_for [@volunteer, @comment] do |form| %>
-  <div class="form-group">
-    <%= form.text_field :content  %>
-  </div>
-  <%= form.submit 'コメントする' %>
+<% if user_signed_in? %>
+  <%= form_for [@volunteer, @comment] do |form| %>
+    <div class="form-group">
+      <%= form.text_field :content  %>
+    </div>
+    <%= form.submit 'コメントする' %>
+  <% end %>
 <% end %>

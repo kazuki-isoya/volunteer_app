@@ -33,10 +33,9 @@
   <% end %>
 <% end %>
 
-<!-- コメント機能 -->
-<%= render 'comments/form_index' %>
 
 <footer>
+  <%= render 'comments/form_index' %>
   <% if user_signed_in? %>
     <% if @volunteer.user.id == current_user.id  %>
       <%= link_to '編集', edit_volunteer_path(@volunteer), class: 'btn btn-primary' %>

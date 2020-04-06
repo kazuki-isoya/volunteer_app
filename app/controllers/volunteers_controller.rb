@@ -3,10 +3,12 @@ class VolunteersController < ApplicationController
   before_action :set_volunteer, only: [:edit, :update, :show, :destroy]
   before_action :search_params, only: [:search]
 
+  PER = 4
+
   def index
     @q = Volunteer.ransack(params[:q])
     @categories = Category.all
-    @volunteers = @q.result.includes(:user) # :categories
+    @volunteers = @q.result.includes(:user).page(params[:page]).per(PER) # :categories
   end
 
   def search
