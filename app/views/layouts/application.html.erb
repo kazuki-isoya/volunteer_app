@@ -10,7 +10,8 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+
+    <nav class="navbar navbar-expand navbar-dark bg-dark ">
       <%= link_to "VolunteerApp", "#", id: "logo", class: "navbar-brand" %>
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
@@ -25,10 +26,12 @@
         <% end %>
       </ul>
     </nav>
-    <div class="alert alert-notice"><%= notice %></div>
-    <div class="alert alert-notice"><%= alert %></div>
+    <%= render 'layouts/flashes' %>
     <div class="container">
+      <br>
+
       <%= yield %>
+
     </div>
   </body>
 </html>
