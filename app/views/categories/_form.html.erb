@@ -20,34 +20,11 @@
   </div>
 
   <div class="field">
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-  </div>
-
-  <div class="field">
-    <%= form.label :住所 %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :定員 %>
-    <%= form.text_field :capacity %>
-  </div>
-
-  <div class="field">
-    <%= form.label :日時 %>
-    <%= form.text_field :date %>
+    <%= form.file_field :icon %>
+    <%= form.hidden_field :icon_cache %>
   </div>
 
 
-  <div class="field">
-    <% Category.all.each do |category| %>
-      <%= form.check_box :category_ids, { multiple: true, checked: category[:checked],
-         disabled: category[:disabled], include_hidden: false }, category[:id] %>
-      <label><%= category.name %></label>
-    <% end %>
-  </div>
 
-
-    <%= form.submit  class: 'btn btn-primary' %>
+    <%= form.submit '決定',  class: 'btn btn-primary' %>
 <% end %>

@@ -11,10 +11,14 @@
     <% @categories.each do |category| %>
       <tr>
         <td><a href="/categories/<%= category.id %>"><%= category.name %></td>
-        <td><%= category.icon %></td>
+        <td><%= image_tag category.icon_url if category.icon.presence %></td>
         <td><%= link_to '変更', edit_category_path(category), class: 'btn btn-primary' %></td>
         <td><%= link_to '削除', category, method: :delete, data: { confirm: '削除しますか？' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @categories %>
+
+<%= link_to '新規カテゴリー作成', new_category_path, class: 'btn btn-success btn-lg' %>

@@ -1,2 +1,5 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<h1>新しいカテゴリーを作成</h1>
+<%= render 'form', category: @category %>
+<footer>
+  <%= link_to '戻る', categories_path, class: 'btn btn-primary' %>
+</footer>

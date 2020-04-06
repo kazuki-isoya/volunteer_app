@@ -1,7 +1,7 @@
 <h1>ユーザー詳細</h1>
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
-<p>アイコン : <%= @user.icon %></p>
+<p>アイコン : <%= image_tag @user.icon_url if @user.icon.present? %></p>
 <p>評価したユーザー数：<%= @user.evaluated_users.count %></p>
 
 <% if user_signed_in? %>

@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_action :admin_user?
 
   def index
-    @categories = Category.all
+    @categories = Category.page(params[:page]).per(4)
   end
 
   def show
