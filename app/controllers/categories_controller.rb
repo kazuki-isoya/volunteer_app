@@ -50,4 +50,8 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def category_params
+    params.require(:category).permit(:name, :icon, :icon_cache, :remove_icon)
+  end
+
 end

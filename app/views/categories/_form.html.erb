@@ -1,27 +1,22 @@
-<%= form_with(model: volunteer, local: true) do |form| %>
-  <% if volunteer.errors.any? %>
+<%= form_with(model: category, local: true) do |form| %>
+  <% if category.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(volunteer.errors.count, "エラー") %> ボランティアが保存できませんでした:</h2>
+      <h2><%= pluralize(category.errors.count, "エラー") %> カテゴリーが保存できませんでした:</h2>
       <ul>
-      <% volunteer.errors.full_messages.each do |message| %>
+      <% category.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
   <div class="form-group">
-    <%= form.label :依頼するボランティアのタイトル %>
-    <%= form.text_field :title, class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ボランティアの詳細 %>
-    <%= form.text_field :describe, class: 'form-control' %>
+    <%= form.label :カテゴリー名 %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :画像 %>
-    <%= image_tag(@volunteer.image.url) if @volunteer.image && @volunteer.image.url %>
+    <%= image_tag(@category.icon.url) if @category.icon && @category.icon.url %>
   </div>
 
   <div class="field">
