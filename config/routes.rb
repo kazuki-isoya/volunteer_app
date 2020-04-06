@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resource :order_managements, only: [:create, :destroy]
   resources :users, only: [:show]
   resources :good_evaluations, only: [:create, :destroy]
+  resources :categories
 
 
   root 'volunteers#index'

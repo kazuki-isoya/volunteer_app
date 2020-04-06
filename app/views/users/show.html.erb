@@ -9,4 +9,7 @@
   <% if current_user.id == @user.id %>
     <%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id) %>
   <% end %>
+  <% if current_user.try(:admin?) %>
+    <p class="admin_btn col-xs-offset-1 col-xs-10 col-xs-offset-1"><%= link_to "管理画面", "/admin" %></p>
+  <% end %>
 <% end %>
