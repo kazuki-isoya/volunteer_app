@@ -21,7 +21,11 @@
 
   <div class="field">
     <%= form.label :画像 %>
-    <%= image_tag(@volunteer.image.url) if @volunteer.image && @volunteer.image.url %>
+    <% if @volunteer.image? && @volunteer.image.url %>
+      <%= image_tag(@volunteer.image.url) %>
+    <% else %>
+      <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" >
+    <% end %>
   </div>
 
   <div class="field">
