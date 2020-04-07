@@ -23,20 +23,11 @@
 </ul>
 <br>
 <!-- 受注機能 -->
-<% if user_signed_in? %>
-  <% if @volunteer.user.id != current_user.id %>
-    <% if @order_management.present? %>
-      <%= link_to '受注解除する', order_managements_path(id: @order_management.id), method: :delete,
-       data: { confirm: 'ボランティアの受注を解除しますか？'}, class: 'btn btn-danger' %>
-    <% else %>
-      <%= link_to '受注する', order_managements_path(volunteer_id: @volunteer.id), method: :post,
-       data: { confirm: 'ボランティアを受注しますか？'}, class: 'btn btn-primary' %>
-    <% end %>
-  <% end %>
-<% end %>
+<%= render 'order_managements/order' %>
 
 
 <footer>
+  <!-- コメント機能 -->
   <%= render 'comments/form_index' %>
   <% if user_signed_in? %>
     <% if @volunteer.user.id == current_user.id  %>

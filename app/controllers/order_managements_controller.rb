@@ -2,9 +2,13 @@ class OrderManagementsController < ApplicationController
   def create
     @volunteer = Volunteer.find(params[:volunteer_id])
     if @volunteer.user_id != current_user.id
-      order_management = current_user.order_managements.create(volunteer_id: params[:volunteer_id])
-      OrderManagementMailer.order_mail(@volunteer, current_user).deliver
-      redirect_to volunteers_path, notice: "#{order_management.volunteer.user.name}さんの依頼を受注しました"
+      if @volunteer.capacity.to_i > @volunteer.contractors.count
+        order_management = current_user.order_managements.create(volunteer_id: params[:volunteer_id])
+        OrderManagementMailer.order_mail(@volunteer, current_user).deliver
+        redirect_to volunteers_path, notice: "#{order_management.volunteer.user.name}さんの依頼を受注しました"
+      else
+        redirect_to @volunteer, alert: "定員が埋まっているので受注出来ません。"
+      end
     else
       redirect_to volunteers_path, alert: "自分の依頼は受注できませんよ"
     end
