@@ -4,10 +4,10 @@ class GoodEvaluationsController < ApplicationController
   def create
     evaluating = current_user.evaluate(@user)
     if evaluating.save
-      flash[:notice] = 'ユーザーをフォローしました'
+      flash[:notice] = "#{@user.name}を評価しました。"
       redirect_to @user
     else
-      flash.now[:alert] = 'ユーザーのフォローに失敗しました'
+      flash.now[:alert] = 'ユーザーの評価に失敗しました。'
       redirect_to @user
     end
   end
@@ -15,10 +15,10 @@ class GoodEvaluationsController < ApplicationController
   def destroy
     evaluating= current_user.unevaluate(@user)
     if evaluating.destroy
-      flash[:notice] = 'ユーザーのフォローを解除しました'
+      flash[:notice] = "#{@user.name}の評価を取り消しました。"
       redirect_to @user
     else
-      flash.now[:alert] = 'ユーザーのフォロー解除に失敗しました'
+      flash.now[:alert] = 'ユーザーの評価の取り消しに失敗しました。'
       redirect_to @user
     end
   end
