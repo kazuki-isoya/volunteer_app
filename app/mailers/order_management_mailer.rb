@@ -5,9 +5,10 @@ class OrderManagementMailer < ApplicationMailer
     mail to: @volunteer.user.email, subject:"#{@user.name}が依頼を受注しました"
   end
 
-  def cancel_mail(cancel, user)
-    @volunteer = cancel
+  def cancel_mail(order, user)
+    @volunteer = order
     @user = user
     mail to: @volunteer.user.email, subject:"#{@user.name}が依頼をキャンセルしました"
   end
+
 end
