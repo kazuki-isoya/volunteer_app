@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_comment, only: [:edit, :update, :destroy]
 
   def create
     volunteer = Volunteer.find(params[:volunteer_id])
@@ -14,14 +15,24 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
-  def update; end
+  def update
+  end
 
   def destroy
-    Comment.find_by(id: params[:id],volunteer_id: params[:volunteer_id]).destroy
+    @comment = Comment.find_by(id: params[:id],volunteer_id: params[:volunteer_id])
+    @comment.destroy
     flash[:alert] = "コメントを削除しました"
     redirect_back(fallback_location: root_path)
+  end
+
+
+  private
+
+  def set_comment
+    @comment = Comment.find_by(id: params[:id],volunteer_id: params[:volunteer_id])
   end
 
   def comment_params
