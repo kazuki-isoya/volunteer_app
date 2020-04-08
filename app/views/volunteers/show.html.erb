@@ -28,7 +28,10 @@
 
 <footer>
   <!-- コメント機能 -->
-  <%= render 'comments/form_index' %>
+  <div id="comments_area">
+    <%= render 'comments/index' %>
+  </div>
+  <%= render 'comments/form' %>
   <% if user_signed_in? %>
     <% if @volunteer.user.id == current_user.id  %>
       <%= link_to '編集', edit_volunteer_path(@volunteer), class: 'btn btn-primary' %>

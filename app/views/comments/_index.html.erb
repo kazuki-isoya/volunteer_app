@@ -14,19 +14,11 @@
     <% if user_signed_in? %>
       <% if current_user.id == comment.user.id %>
         <p>
-          <%=link_to "削除", volunteer_comment_path(comment.volunteer.id, comment.id), method: :delete, data: {confirm: 'コメントを削除しますか？'} %>
+          <%=link_to "削除", volunteer_comment_path(comment.volunteer.id, comment.id), method: :delete, remote: true,
+           data: {confirm: 'コメントを削除しますか？'} %>
         </p>
       <% end %>
     <% end %>
     <hr>
   </div>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= form_for [@volunteer, @comment] do |form| %>
-    <div class="form-group">
-      <%= form.text_field :content  %>
-    </div>
-    <%= form.submit 'コメントする' %>
-  <% end %>
 <% end %>

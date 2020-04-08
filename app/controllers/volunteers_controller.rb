@@ -8,7 +8,7 @@ class VolunteersController < ApplicationController
   def index
     @q = Volunteer.ransack(params[:q])
     @categories = Category.all
-    @volunteers = @q.result.includes(:user).page(params[:page]).per(PER) # :categories
+    @volunteers = @q.result.includes(:user).page(params[:page]).order(created_at: :desc).per(PER) 
   end
 
   def search
@@ -51,7 +51,7 @@ class VolunteersController < ApplicationController
 
   def show
     @order_management = current_user.order_managements.find_by(volunteer_id: @volunteer.id) if user_signed_in?
-    @comments = @volunteer.comments.includes(:user)
+    @comments = @volunteer.comments.includes(:user).order(created_at: :desc)
     @comment = Comment.new
   end
 

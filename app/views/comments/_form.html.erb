@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <%= form_with(model: [@volunteer, @comment], remote: true)  do |form| %>
+    <div class="form-group">
+      <%= form.text_area :content  %>
+    </div>
+    <%= form.submit 'コメントする' %>
+  <% end %>
+<% end %>

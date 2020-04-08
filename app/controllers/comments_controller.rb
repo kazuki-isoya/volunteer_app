@@ -14,6 +14,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update; end
+
   def destroy
     Comment.find_by(id: params[:id],volunteer_id: params[:volunteer_id]).destroy
     flash[:alert] = "コメントを削除しました"
