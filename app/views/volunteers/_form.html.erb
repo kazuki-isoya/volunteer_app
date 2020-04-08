@@ -16,7 +16,7 @@
 
   <div class="field">
     <%= form.label :ボランティアの詳細 %>
-    <%= form.text_field :describe, class: 'form-control' %>
+    <%= form.text_area :describe, class: 'form-control' %>
   </div>
 
   <div class="field">
@@ -33,19 +33,19 @@
     <%= form.hidden_field :image_cache %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :住所 %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :定員 %>
-    <%= form.text_field :capacity %>
+    <%= form.number_field :capacity, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :日時 %>
-    <%= form.text_field :date %>
+    <%= form.datetime_field :date, class: 'form-control' %>
   </div>
 
 

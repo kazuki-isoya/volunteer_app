@@ -1,4 +1,5 @@
 # README
+### 2020.4.8更新。現在は未完成です。
 
 ## ボランティア募集、受注アプリ
 
@@ -10,7 +11,7 @@
 ボランティアなので報酬はありませんが、ボランティアをするたびにユーザーは評価ポイントが貯まりそこでモチベーションを上げていく考えです。
 
 ### バージョン
-Ruby 2.6.5 Rails 5.2.3
+Ruby 2.6.5 Rails 5.2.4.2
 
 ### 機能一覧
 - ログイン機能
@@ -40,5 +41,14 @@ https://docs.google.com/spreadsheets/d/1okEI_g12XHG7wcQx2g21hlMEWOYmlk2v2CIwLieR
 - carrierwave
 - mini_magic
 - devise
+- devise-i18n
 - ransack
 - rails_admin
+- cancancan
+- bootstrap 4.4.1'
+- kaminari
+- letter_opener_web
+- bullet
+- pry-rails
+- better_errors
+- binding_of_caller
