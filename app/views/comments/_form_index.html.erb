@@ -1,8 +1,23 @@
-<h3>コメント一覧</h3>
+<h3 class="mt-5">コメント一覧</h3>
 <% @comments.each do |comment| %>
   <div>
-    <a href="/users/<%= comment.user.id %>"><%= comment.user.name %></a>
+    <% unless comment.user.icon.blank? %>
+      <a href="/users/<%= comment.user.id %>">
+        <%= image_tag comment.user.icon.to_s, class:"rounded-circle icon_image mr-3 mb-3"%>
+      </a>
+    <% else %>
+      <a href="/users/<%= comment.user.id %>">
+        <%= "#{comment.user.name}:" %>
+      </a>
+    <% end %>
     <%= comment.content %>
+    <% if user_signed_in? %>
+      <% if current_user.id == comment.user.id %>
+        <p>
+          <%=link_to "削除", volunteer_comment_path(comment.volunteer.id, comment.id), method: :delete, data: {confirm: 'コメントを削除しますか？'} %>
+        </p>
+      <% end %>
+    <% end %>
     <hr>
   </div>
 <% end %>
