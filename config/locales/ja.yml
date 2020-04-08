@@ -10,6 +10,7 @@ ja:
         capacity: 定員
         address: 住所
         image: イメージ
+        date: 日時
 
       user:
         name: 名前
