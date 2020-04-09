@@ -14,5 +14,5 @@ Rails.application.routes.draw do
 
 
   root 'volunteers#index'
-  mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
