@@ -4,7 +4,7 @@ RSpec.describe 'ボランティア機能', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @volunteer = FactoryBot.create(:volunteer, user: @user)
-      visit root_path
+    visit root_path
     click_on 'ログインする'
     fill_in 'user_email', with: 'user@email.com'
     fill_in 'user_password', with: 'password'
@@ -41,7 +41,7 @@ RSpec.describe 'ボランティア機能', type: :system do
       @search = FactoryBot.create(:volunteer, title: 'search', user: @user)
     end
     it '検索機能' do
-      task_list = all('tbody tr')
+      # task_list = all('tbody tr')
       fill_in 'q_title_cont', with: 'search'
       select '指定なし', from: 'カテゴリー'
       click_on '検索'
