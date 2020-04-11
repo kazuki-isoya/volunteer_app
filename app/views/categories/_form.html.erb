@@ -16,7 +16,11 @@
 
   <div class="field">
     <%= form.label :画像 %>
-    <%= image_tag(@category.icon.url) if @category.icon && @category.icon.url %>
+    <% if @category.icon? && @category.icon.url %>
+      <%= image_tag(@category.icon.url) %>
+    <% else %>
+      <image src="/assets/default.png" class="icon" alt="アイコン" >
+    <% end %>
   </div>
 
   <div class="field">
