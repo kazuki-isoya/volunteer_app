@@ -25,7 +25,7 @@ class VolunteersController < ApplicationController
     @volunteer.user_id = current_user.id
     if @volunteer.save
       VolunteerMailer.volunteer_mail(@volunteer).deliver
-      redirect_to volunteers_path, notice: 'ボランティア募集を作成しました！'
+      redirect_to root_path, notice: 'ボランティア募集を作成しました！'
     else
       render :new
     end
@@ -40,7 +40,7 @@ class VolunteersController < ApplicationController
   def update
     if @volunteer.user_id == current_user.id
       if @volunteer.update(volunteer_params)
-        redirect_to volunteers_path, notice: 'ボランティア内容を編集しました。'
+        redirect_to root_path, notice: 'ボランティア内容を編集しました。'
       else
         render :edit
       end
@@ -59,7 +59,7 @@ class VolunteersController < ApplicationController
     if @volunteer.user_id == current_user.id
       VolunteerMailer.delete_mail(@volunteer).deliver
       @volunteer.destroy
-      redirect_to volunteers_path, notice: 'ボランティアを削除しました。'
+      redirect_to root_path, notice: 'ボランティアを削除しました。'
     else
       redirect_to root_path, alert: '実行できません'
     end
