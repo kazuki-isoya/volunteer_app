@@ -1,5 +1,5 @@
 <h3 class="mt-5">コメント一覧</h3>
-<% @comments.each do |comment| %>
+<% comments.each do |comment| %>
   <div>
     <% unless comment.user.icon.blank? %>
       <a href="/users/<%= comment.user.id %>">

@@ -6,12 +6,12 @@ class CommentsController < ApplicationController
     @volunteer = Volunteer.find(params[:volunteer_id])
     @comment = @volunteer.comments.build(comment_params)
     @comment.user_id = current_user.id
-    if @comment.save
-      flash[:notice] = "コメントしました"
-      redirect_back(fallback_location: root_path)
-    else
-      flash[:alert] = "コメントに失敗しました"
-      redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      if @comment.save
+        format.js { render :index }
+      else
+        format.html { redirect_to volunteer_path(@volunteer), notice: '投稿できませんでした' }
+      end
     end
   end
 
@@ -22,9 +22,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment.destroy
-    flash[:alert] = "コメントを削除しました"
-    redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      if @comment.destroy
+        format.js { render :index }
+      else
+        format.html { redirect_to volunteer_path(@volunteer), notice: '削除できませんでした' }
+      end
+    end
   end
 
 
@@ -35,6 +39,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:volunteer_id, :content)
   end
 end

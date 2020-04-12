@@ -26,16 +26,14 @@
 <%= render 'order_managements/order' %>
 
 
-<footer>
   <!-- コメント機能 -->
   <div id="comments_area">
-    <%= render 'comments/index' %>
+    <%= render partial: 'comments/index', locals: { comments: @comments, volunteer: @volunteer } %>
   </div>
-  <%= render 'comments/form' %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, volunteer: @volunteer } %>
   <% if user_signed_in? %>
     <% if @volunteer.user.id == current_user.id  %>
       <%= link_to '編集', edit_volunteer_path(@volunteer), class: 'btn btn-primary' %>
     <% end %>
   <% end %>
   <%= link_to '戻る', volunteers_path, class: 'btn btn-primary' %>
-</footer>
