@@ -3,8 +3,8 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update, :destroy]
 
   def create
-    volunteer = Volunteer.find(params[:volunteer_id])
-    @comment = volunteer.comments.build(comment_params)
+    @volunteer = Volunteer.find(params[:volunteer_id])
+    @comment = @volunteer.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
       flash[:notice] = "コメントしました"
@@ -22,7 +22,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find_by(id: params[:id],volunteer_id: params[:volunteer_id])
     @comment.destroy
     flash[:alert] = "コメントを削除しました"
     redirect_back(fallback_location: root_path)

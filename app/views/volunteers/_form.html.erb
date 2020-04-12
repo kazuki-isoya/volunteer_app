@@ -48,15 +48,32 @@
     <%= form.datetime_field :date, class: 'form-control' %>
   </div>
 
-
-  <div class="field">
-    <% Category.all.each do |category| %>
-      <%= form.check_box :category_ids, { multiple: true, checked: category[:checked],
-         disabled: category[:disabled], include_hidden: false }, category[:id] %>
-      <label><%= category.name %></label>
-    <% end %>
+  <div class="col-12 clearfix">
+    <div class="float-left">
+      <% Category.all.each do |category| %>
+           <table class="float-left">
+             <thead>
+               <tr>
+                 <th>
+                   <%= form.check_box :category_ids, { multiple: true, checked: category[:checked],
+                      disabled: category[:disabled], include_hidden: false }, category[:id] %>
+                      <%= category.name %>
+                  </th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <td>
+                   <% if category.icon.present? %>
+                    <%= image_tag category.icon_url, class: 'rounded-circle' %>
+                   <% end %>
+                </td>
+               </tr>
+             </tbody>
+           </table>
+      <% end %>
+    </div>
   </div>
-
-
     <%= form.submit  class: 'btn btn-primary' %>
+    <%= link_to '戻る', volunteers_path, class: 'btn btn-primary' %>
 <% end %>

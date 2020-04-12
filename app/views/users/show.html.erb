@@ -1,7 +1,7 @@
-<h1>ユーザー詳細</h1>
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p>アイコン : <%= image_tag @user.icon_url if @user.icon.present? %></p>
+<h2><%= "#{@user.name}のプロフィール" %></h2>
+<% if @user.icon.present? %>
+  <%= image_tag @user.icon_url, class: 'rounded-circle' %>
+<% end %>
 <p>評価したユーザー数：<%= @user.evaluated_users.count %></p>
 
 <% if user_signed_in? %>
@@ -9,8 +9,8 @@
   <% if current_user.id == @user.id %>
     <%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id) %>
     <% if current_user.try(:admin?) %>
-      <p><%= link_to "管理画面", "/admin" %></p>
-      <p><%= link_to "カテゴリーリスト", categories_path %></p>
+      <%= link_to "管理画面", "/admin" %>
+      <%= link_to "カテゴリーリスト", categories_path %>
     <% end %>
   <% end %>
 <% end %>
