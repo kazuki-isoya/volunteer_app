@@ -11,7 +11,7 @@
 
   <body>
 
-    <nav class="navbar navbar-expand navbar-dark bg-dark ">
+    <nav class="navbar navbar-expand navbar-light" style="background-color:#33FF66;" >
       <%= link_to "VolunteerApp", root_path, id: "logo", class: "navbar-brand" %>
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
@@ -21,7 +21,7 @@
           </li>
           <li class="nav-item"><%= link_to "ログアウトする", destroy_user_session_path, method: :delete , class: "nav-link"%></li>
         <% else %>
-          <li class="nav-item"><%= link_to "新規作成", new_user_registration_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "新規ユーザー登録", new_user_registration_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "ログインする", new_user_session_path, class: "nav-link" %></li>
         <% end %>
       </ul>
