@@ -4,7 +4,7 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
         }
   resources :volunteers do
-    resources :comments
+    resources :comments, only: [:create, :destroy, :edit, :update]
   end
   get 'search', to: 'volunteers#search'
   resource :order_managements, only: [:create, :destroy]
