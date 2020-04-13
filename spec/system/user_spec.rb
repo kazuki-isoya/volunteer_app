@@ -23,7 +23,7 @@ RSpec.describe 'ユーザー機能', type: :system do
     end
     it 'ユーザー詳細を見る' do
       click_on "#{@user.name}のプロフィール"
-      expect(page).to have_content "ユーザー詳細"
+      expect(page).to have_content "#{@user.name}のプロフィール"
     end
     it 'ユーザーを編集する' do
         visit edit_user_registration_path(@user.id)
