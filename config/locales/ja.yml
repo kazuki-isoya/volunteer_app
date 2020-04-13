@@ -3,6 +3,11 @@ ja:
     models:
       volunteer: ボランティア
       user: ユーザー
+      category: カテゴリー
+      order_management: 受注管理
+      good_evaluation: 評価
+      comment: コメント
+      categorizing: カテゴリー付け
     attributes:
       volunteer:
         title: タイトル
@@ -20,3 +25,21 @@ ja:
         password: パスワード
         password_confirmation: 確認用パスワード
         remember_me: ログインを記憶
+
+      category:
+        name: カテゴリー名
+        icon: アイコン
+        categorizing: カテゴリー付け
+
+      good_evaluation:
+        user: ユーザー
+        evaluate_user: 評価したユーザー
+
+      order_management:
+        user: ユーザー
+        volunteer: ボランティア
+
+      comment:
+        content: コメント内容
+        user: ユーザー
+        volunteer: ボランティア
