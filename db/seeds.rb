@@ -1,5 +1,30 @@
-User.create(name: "admin", email: "admin@email.com", icon:File.open("./public/images/default.png"),
-  password: "password", admin: true)
+User.create(
+  name: "admin",
+  email: "admin@email.com",
+  icon:File.open("./public/images/default.png"),
+  password: "password",
+  admin: true
+)
+
+User.create(
+  name: "test",
+  email: "test@email.com",
+  icon:File.open("./public/images/default.png"),
+  password: "password",
+  admin: false
+)
+
+20.times do |n|
+  email = Faker::Internet.email
+  password = "password"
+  User.create!(name: "seed_name",
+               email: email,
+               icon:File.open("./public/images/default.png"),
+               password: password,
+               admin: false
+               )
+end
+
 
 Category.create(name: "誰でも歓迎", icon:File.open("./public/images/welcom.jpg"))
 Category.create(name: "力仕事", icon:File.open("./public/images/power.png"))
