@@ -3,7 +3,11 @@
 <p>詳細：<%= @volunteer.describe %></p>
 <p>
   画像:
-  <%= image_tag @volunteer.image_url if @volunteer.image.present?  %>
+  <% if @volunteer.image? && @volunteer.image.url %>
+    <%= image_tag(@volunteer.image.url) %>
+  <% else %>
+    <image src="/assets/default.png" width="350" height="300" >
+  <% end %>
 </p>
 <p>住所：<%= @volunteer.address %></p>
 <p>定員：<%= @volunteer.capacity %></p>

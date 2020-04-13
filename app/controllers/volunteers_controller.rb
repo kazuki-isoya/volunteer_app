@@ -22,6 +22,7 @@ class VolunteersController < ApplicationController
 
   def create
     @volunteer = Volunteer.new(volunteer_params)
+    @volunteer[:image] = "/assets/default.png" if params[:image].nil?
     @volunteer.user_id = current_user.id
     if @volunteer.save
       VolunteerMailer.volunteer_mail(@volunteer).deliver
