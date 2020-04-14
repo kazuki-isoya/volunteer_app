@@ -1,10 +1,5 @@
-User.create(
-  name: "admin",
-  email: "admin@email.com",
-  icon:File.open("./public/images/default.png"),
-  password: "password",
-  admin: true
-)
+
+
 
 User.create(
   name: "test",
@@ -24,6 +19,8 @@ User.create(
                admin: false
                )
 end
+
+FactoryBot.create(:volunteer)
 
 
 Category.create(name: "誰でも歓迎", icon:File.open("./public/images/welcom.jpg"))
