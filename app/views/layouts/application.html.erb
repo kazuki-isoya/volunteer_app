@@ -5,14 +5,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
     <nav class="navbar navbar-expand navbar-light" style="background-color:#33FF66;" >
-      <%= link_to "VolunteerApp", root_path, id: "logo", class: "navbar-brand" %>
+      <a class="navbar-brand" href="/"><image src="/assets/volunteer_nav.png" width="70" height="70" class="rounded-circle" ></a>
+      <%= link_to "VolunteerApp", root_path, id: "logo", class: "navbar-brand text-light" %>
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item"><%= link_to "ボランティア一覧", root_path, class: "nav-link" %></li>

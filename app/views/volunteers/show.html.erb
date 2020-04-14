@@ -1,33 +1,79 @@
-<p>タイトル：<%= @volunteer.title %></p>
-<p>依頼者：<%= @volunteer.user.name %></p>
-<p>詳細：<%= @volunteer.describe %></p>
-<p>
-  画像:
-  <% if @volunteer.image? && @volunteer.image.url %>
-    <%= image_tag(@volunteer.image.url) %>
-  <% else %>
-    <image src="/assets/default.png" width="350" height="300" >
-  <% end %>
-</p>
-<p>住所：<%= @volunteer.address %></p>
-<p>定員：<%= @volunteer.capacity %></p>
-<p>日付：<%= @volunteer.date %></p>
-<strong>カテゴリー</strong>
-<ul>
-  <% @volunteer.categories.each do |category| %>
-    <li><%= category.name %></li>
-  <% end %>
-</ul>
-<p><span>受注した人数: </span><%= @volunteer.contractors.count %></p>
-<p><span>受注した人</span></p>
-<ul>
-  <% @volunteer.contractors.each do |contractor| %>
-    <li><%= contractor.name %></li>
-  <% end %>
-</ul>
-<br>
-<!-- 受注機能 -->
-<%= render 'order_managements/order' %>
+<div class="row">
+
+  <div class="col">
+    <p>タイトル：<%= @volunteer.title %></p>
+    <p>依頼者：<%= @volunteer.user.name %></p>
+    <p>詳細：<%= @volunteer.describe %></p>
+    <p>住所：<%= @volunteer.address %></p>
+    <p>定員：<%= @volunteer.capacity %></p>
+    <p>日付：<%= @volunteer.date %></p>
+    <p>カテゴリー</p>
+    <div class="col-12 clearfix">
+      <div class="float-left">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <% @volunteer.categories.each do |vc| %>
+                  <%= vc.name %>
+                <% end %>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <% @volunteer.categories.each do |vc| %>
+                  <%= image_tag vc.icon.url, class: 'rounded-circle', size: '100x100' %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p><span>受注した人数: </span><%= @volunteer.contractors.count %></p>
+    <p><span>受注した人</span></p>
+    <div class="col-12 clearfix">
+      <div class="float-left">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <% @volunteer.contractors.each do |vc| %>
+                  <%= vc.name %>
+                <% end %>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <% @volunteer.contractors.each do |vc| %>
+                  <a href="/users/<%= vc.id %>">
+                    <%= image_tag vc.icon.url, class: 'rounded-circle', size: '100x100' %>
+                  </a>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br>
+    <!-- 受注機能 -->
+    <%= render 'order_managements/order' %>
+  </div>
+  <div class="col">
+    <p>
+      <% if @volunteer.image? && @volunteer.image.url %>
+        <%= image_tag @volunteer.image.url, class: 'rounded-circle', size: '300x300' %>
+      <% else %>
+        <image src="/assets/default.png" width="350" height="300" >
+      <% end %>
+    </p>
+  </div>
+</div>
 
 
   <!-- コメント機能 -->
@@ -35,6 +81,7 @@
     <%= render partial: 'comments/index', locals: { comments: @comments, volunteer: @volunteer } %>
   </div>
   <%= render partial: 'comments/form', locals: { comment: @comment, volunteer: @volunteer } %>
+  <br>
   <% if user_signed_in? %>
     <% if @volunteer.user.id == current_user.id  %>
       <%= link_to '編集', edit_volunteer_path(@volunteer), class: 'btn btn-primary' %>

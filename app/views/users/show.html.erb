@@ -1,13 +1,34 @@
 <h2><%= "#{@user.name}のプロフィール" %></h2>
-<% if @user.icon.present? %>
-  <%= image_tag @user.icon_url, class: 'rounded-circle' %>
-<% end %>
-<p>評価したユーザー数：<%= @user.evaluated_users.count %></p>
+<div class="row">
+  <div class="col">
+    <p>メールアドレス：<%= @user.email %></p>
+    <p>評価したユーザー数：<%= @user.evaluated_users.count %>人</p>
+    <p>依頼しているボランティア</p>
+    <% @user.volunteers.each do |v| %>
+      <% n = 1 %>
+      <p><%= n %> : <%= v.title %></p>
+      <% n += 1 %>
+    <% end %>
+    <p>受注しているボランティア</p>
+    <% @user.ordered_volunteers.each do |ov| %>
+      <% n = 1 %>
+      <p><%= n %> : <%= ov.title %></p>
+      <% n += 1 %>
+    <% end %>
+  </div>
+  <div class="col">
+    <% if @user.icon.present? %>
+      <%= image_tag @user.icon_url, class: 'rounded-circle', size: '300x300' %>
+    <% end %>
+  </div>
+</div>
+
 
 <% if user_signed_in? %>
   <%= render 'good_evaluations/evaluate_button', user: @user %>
   <% if current_user.id == @user.id %>
-    <%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id) %>
+    <%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id), class: "btn btn-primary" %>
+    <br>
     <% if current_user.try(:admin?) %>
       <%= link_to "管理画面", "/admin" %>
       <%= link_to "カテゴリーリスト", categories_path %>
