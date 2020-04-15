@@ -9,16 +9,6 @@ User.create(
   admin: false
 )
 
-20.times do |n|
-  email = Faker::Internet.email
-  password = "password"
-  User.create!(name: "seed_name",
-               email: email,
-               icon:File.open("./public/images/default.png"),
-               password: password,
-               admin: false
-               )
-end
 
 FactoryBot.create(:volunteer)
 
