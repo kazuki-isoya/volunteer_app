@@ -26,7 +26,7 @@
 
 <% if user_signed_in? %>
   <%= render 'good_evaluations/evaluate_button', user: @user %>
-  <% if current_user.id == @user.id %>
+  <% if current_user.id == @user.id && @user.email != "test@email.com" %>
     <%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id), class: "btn btn-primary" %>
     <br>
     <% if current_user.try(:admin?) %>

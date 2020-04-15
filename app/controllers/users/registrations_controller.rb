@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :forbid_test_user, only: [:edit, :update, :destroy]
 
   # GET /resource/sign_up
   # def new
@@ -60,6 +61,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     resource.update_without_password(params)
+  end
+
+  def forbid_test_user
+    if @user.email == "test@email.com"
+      flash[:alert] == "テストユーザーは編集できません"
+      redirect_to root_path
+    end
   end
 
   # The path used after sign up for inactive accounts.

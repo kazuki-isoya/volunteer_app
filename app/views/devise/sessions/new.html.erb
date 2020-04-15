@@ -1,5 +1,5 @@
 <h2><%= t('.sign_in') %></h2>
-<%= image_tag "volunteer_top.jpeg", class: "mx-auto d-block", size: '500x500' %>
+<%= image_tag "volunteer_top.jpeg", class: "mx-auto d-block", size: '300x300' %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group">
     <%= f.label :email, class: "col text-center" %><br />
@@ -20,5 +20,7 @@
     <%= f.submit t('.sign_in'), class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<%= render "devise/sessions/testuser" %>
 
 <%= render "devise/shared/links" %>
