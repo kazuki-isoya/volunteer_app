@@ -4,16 +4,16 @@
     <p>メールアドレス：<%= @user.email %></p>
     <p>評価したユーザー数：<%= @user.evaluated_users.count %>人</p>
     <p>依頼しているボランティア</p>
+    <% n = 1 %>
     <% @user.volunteers.each do |v| %>
-      <% n = 1 %>
       <p><%= n %> : <%= v.title %></p>
       <% n += 1 %>
     <% end %>
     <p>受注しているボランティア</p>
+    <% s = 1 %>
     <% @user.ordered_volunteers.each do |ov| %>
-      <% n = 1 %>
-      <p><%= n %> : <%= ov.title %></p>
-      <% n += 1 %>
+      <p><%= s %> : <%= ov.title %></p>
+      <% s += 1 %>
     <% end %>
   </div>
   <div class="col">

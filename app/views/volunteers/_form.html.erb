@@ -18,15 +18,17 @@
     <%= form.label :ボランティアの詳細 %>
     <%= form.text_area :describe, class: 'form-control' %>
   </div>
+  <br>
 
   <div class="field">
     <%= form.label :画像 %>
     <% if @volunteer.image? && @volunteer.image.url %>
-      <%= image_tag(@volunteer.image.url) %>
+      <%= image_tag @volunteer.image.url, class: 'rounded-circle', size: '200x200' %>
     <% else %>
-      <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" >
+      <image src="/assets/default.png" class="icon rounded-circle" width="200" height="200" >
     <% end %>
   </div>
+  <br>
 
   <div class="field">
     <%= form.file_field :image %>
