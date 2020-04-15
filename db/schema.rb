@@ -79,11 +79,11 @@ ActiveRecord::Schema.define(version: 2020_04_07_132907) do
   end
 
   create_table "volunteers", force: :cascade do |t|
-    t.string "title"
-    t.text "describe"
+    t.string "title", default: "no title", null: false
+    t.text "describe", default: "no describe", null: false
     t.string "image"
-    t.text "address"
-    t.datetime "date"
+    t.text "address", default: "no address", null: false
+    t.datetime "date", default: "2020-04-22 14:07:19", null: false
     t.integer "capacity", default: 4, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

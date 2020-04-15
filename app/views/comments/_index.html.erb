@@ -4,7 +4,7 @@
 <% comments.order(created_at: :desc).each do |comment| %>
   <div class="row">
     <div class="col-2">
-      <a href="/users/<%= comment.user.id %>"><%= "#{comment.user.name}" %></a>
+      <a href="/users/<%= comment.user.id %>"><%= "#{comment.user.name.truncate(10)}" %></a>
       <% unless comment.user.icon.blank? %>
         <a href="/users/<%= comment.user.id %>">
           <%= image_tag comment.user.icon.to_s, class:"rounded-circle", size: '100x100'%>
