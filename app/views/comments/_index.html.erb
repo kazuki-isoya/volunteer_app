@@ -13,6 +13,9 @@
     </div>
 
     <div class="col-10">
+      <div id="errors_area_<%= comment.id %>">
+        <%= render partial: 'comments/edit_error' %>
+      </div>
       <div class="comment-content" id ="this_comment_<%= comment.id %>">
         <%= comment.content %>
       </div>

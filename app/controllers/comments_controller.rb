@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
         format.js { render :index }
       else
         flash.now[:notice] = 'コメントの編集に失敗しました'
-        format.html { redirect_to volunteer_path(@volunteer), notice: '編集できませんでした' }
+        format.js { redirect_to volunteer_path(@volunteer), notice: '編集できませんでした' }
       end
     end
   end

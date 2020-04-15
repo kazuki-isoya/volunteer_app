@@ -6,9 +6,9 @@ class Volunteer < ApplicationRecord
   has_many :categories, through: :categorizings
   has_many :comments, dependent: :destroy
   mount_uploader :image, ImageUploader
-  validates :title, presence: true
-  validates :describe, presence: true
-  validates :address, presence: true
+  validates :title, presence: true, length: {maximum: 30}
+  validates :describe, presence: true, length: {maximum: 300}
+  validates :address, presence: true, length: {maximum: 300}
   validates :date, presence: true
   validates :capacity, presence: true
 
