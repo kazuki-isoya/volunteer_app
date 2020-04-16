@@ -15,6 +15,7 @@ RSpec.describe 'ユーザー評価機能', type: :system do
 
   it 'カテゴリーリストを見る。' do
     visit user_path(@user.id)
+    sleep 1
     click_on 'カテゴリーリスト'
     expect(page).to have_content "カテゴリーリスト"
   end
