@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'top/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
         registrations: 'users/registrations'
@@ -13,6 +14,6 @@ Rails.application.routes.draw do
   resources :categories
 
 
-  root 'volunteers#index'
+  root 'top#index'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" # if Rails.env.development?
 end
