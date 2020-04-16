@@ -8,6 +8,7 @@ RSpec.describe 'ユーザー機能', type: :system do
 
   it 'ユーザー情報を入力してログインする' do
     click_on 'ログインする'
+    sleep 1
     fill_in 'user_email', with: 'user@email.com'
     fill_in 'user_password', with: 'password'
     click_on 'ログイン'
@@ -17,6 +18,7 @@ RSpec.describe 'ユーザー機能', type: :system do
   context 'ログイン中' do
     before do
       click_on 'ログインする'
+      sleep 1
       fill_in 'user_email', with: 'user@email.com'
       fill_in 'user_password', with: 'password'
       click_on 'ログイン'

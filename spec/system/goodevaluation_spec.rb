@@ -6,6 +6,7 @@ RSpec.describe 'ユーザー評価機能', type: :system do
     @user2 = FactoryBot.create(:user, name: "user2", email: "user2@email.com", admin: false)
     visit root_path
     click_on 'ログインする'
+    sleep 1
     fill_in 'user_email', with: 'user@email.com'
     fill_in 'user_password', with: 'password'
     click_on 'ログイン'

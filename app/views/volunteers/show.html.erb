@@ -50,9 +50,13 @@
             <tr>
               <td>
                 <% @volunteer.contractors.each do |vc| %>
-                  <a href="/users/<%= vc.id %>">
-                    <%= image_tag vc.icon.url, class: 'rounded-circle', size: '100x100' %>
-                  </a>
+                  <% if vc.icon.present? %>
+                    <a href="/users/<%= vc.id %>">
+                      <%= image_tag vc.icon.url, class: 'rounded-circle', size: '100x100' %>
+                    </a>
+                  <% else %>
+                    <image src="/assets/default.png" class="icon rounded-circle" width="100" height="100" >
+                  <% end %>
                 <% end %>
               </td>
             </tr>

@@ -6,6 +6,7 @@ RSpec.describe 'ボランティア機能', type: :system do
     @volunteer = FactoryBot.create(:volunteer, user: @user)
     visit root_path
     click_on 'ログインする'
+    sleep 1
     fill_in 'user_email', with: 'user@email.com'
     fill_in 'user_password', with: 'password'
     click_on 'ログイン'
@@ -18,7 +19,8 @@ RSpec.describe 'ボランティア機能', type: :system do
     fill_in 'volunteer_address', with: 'rspec_test_address'
     fill_in 'volunteer_date', with: '00_2021_04_30_10_00'
     click_on '登録する'
-    expect(page).to have_content "ボランティア募集を作成しました"
+    sleep 1
+    expect(page).to have_content "ボランティア依頼を作成しました"
   end
 
   it 'ボランティアを編集' do
@@ -41,10 +43,9 @@ RSpec.describe 'ボランティア機能', type: :system do
       @search = FactoryBot.create(:volunteer, title: 'search', user: @user)
     end
     it '検索機能' do
-      # task_list = all('tbody tr')
       fill_in 'q_title_cont', with: 'search'
       select '指定なし', from: 'カテゴリー'
-      click_on '検索'
+      click_on 'search_btn'
       expect(page).to have_content "search"
     end
   end
