@@ -1,107 +1,105 @@
-@user = User.create(
+@user = FactoryBot.create(:user)
+
+@test = User.create(
   name: "test",
   email: "test@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
-  admin: false
+  admin: false,
+  introduction: "テストユーザーはプロフィールを編集できません。"
 )
 
-@user2 = User.create(
-  name: "test2",
-  email: "test2@email.com",
+@hoge = User.create(
+  name: "hoge",
+  email: "hoge@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
   admin: false
 )
 
-@user3 = User.create(
-  name: "test3",
-  email: "test3@email.com",
+@mogu = User.create(
+  name: "mogu",
+  email: "mogu@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
   admin: false
 )
 
-@user4 = User.create(
-  name: "test4",
-  email: "test4@email.com",
+@leef = User.create(
+  name: "leef",
+  email: "leef@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
   admin: false
 )
 
-@user5 = User.create(
-  name: "test5",
-  email: "test5@email.com",
+@jojo = User.create(
+  name: "jojo",
+  email: "jojo@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
   admin: false
 )
 
-@user6 = User.create(
-  name: "test6",
-  email: "test6@email.com",
+@zero = User.create(
+  name: "zero",
+  email: "zero@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
   admin: false
 )
 
-@user7 = User.create(
-  name: "test7",
-  email: "test7@email.com",
+@syaa = User.create(
+  name: "syas",
+  email: "syaa@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
   admin: false
 )
 
-@user8 = User.create(
-  name: "test8",
-  email: "test8@email.com",
+@shin = User.create(
+  name: "shin",
+  email: "shin@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
   admin: false
 )
 
-@user9 = User.create(
-  name: "test9",
-  email: "test9@email.com",
+@ben = User.create(
+  name: "ben",
+  email: "ben@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
   admin: false
 )
 
-@user10 = User.create(
-  name: "test10",
-  email: "test10@email.com",
+@jibu = User.create(
+  name: "jibu",
+  email: "jibu@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
   admin: false
 )
 
-@user11 = User.create(
-  name: "test11",
-  email: "test11@email.com",
+@van = User.create(
+  name: "van",
+  email: "van@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
   admin: false
 )
 
 
-FactoryBot.create(:volunteer)
-FactoryBot.create(:volunteer, title: "test2", user: @user)
-FactoryBot.create(:volunteer, title: "test3", user: @user2)
-FactoryBot.create(:volunteer, title: "test4", user: @user3)
-FactoryBot.create(:volunteer, title: "test5", user: @user4)
-FactoryBot.create(:volunteer, title: "test6", user: @user5)
-FactoryBot.create(:volunteer, title: "test7", user: @user6)
-FactoryBot.create(:volunteer, title: "test8", user: @user7)
-FactoryBot.create(:volunteer, title: "test9", user: @user8)
-FactoryBot.create(:volunteer, title: "test10", user: @user9)
-
-
-
-
-
+FactoryBot.create(:volunteer, user: @user)
+FactoryBot.create(:volunteer, title: "test_volunteer", user: @test)
+FactoryBot.create(:volunteer, title: "hoge", user: @hoge)
+FactoryBot.create(:volunteer, title: "mogu", user: @mogu)
+FactoryBot.create(:volunteer, title: "leef", user: @leef)
+FactoryBot.create(:volunteer, title: "jojo", user: @jojo)
+FactoryBot.create(:volunteer, title: "zero", user: @zero)
+FactoryBot.create(:volunteer, title: "syaa", user: @syaa)
+FactoryBot.create(:volunteer, title: "shin", user: @shin)
+FactoryBot.create(:volunteer, title: "ben", user: @ben)
 
 Category.create(name: "誰でも歓迎", icon:File.open("./public/images/welcom.jpg"))
 Category.create(name: "力仕事", icon:File.open("./public/images/power.png"))
