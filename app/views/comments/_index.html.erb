@@ -19,7 +19,7 @@
       <div class="comment-content" id ="this_comment_<%= comment.id %>">
         <%= comment.content %>
       </div>
-      <p>投稿時間<%= time_ago_in_words(comment.created_at) %>前</p>
+      <p><font size="-2"><%= time_ago_in_words(comment.created_at) %>前</font></p>
       <% if user_signed_in? %>
         <% if current_user.id == comment.user.id %>
           <span class="badge">

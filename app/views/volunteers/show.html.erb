@@ -1,12 +1,11 @@
 <div class="row">
 
-  <div class="col">
+  <div class="col-5">
     <h3><%= @volunteer.title %></h3>
     <p>依頼者：<%= @volunteer.user.name %></p>
-    <p>住所：<%= @volunteer.address %></p>
+    <p>住所：<%= @volunteer.address %> <a href="https://www.google.co.jp/maps" target="_blank">Map</a></p>
     <p>ステータス：<%= "受注者#{@volunteer.contractors.count}人/定員#{@volunteer.capacity}人" %></p>
     <p>日付：<%= @volunteer.date %></p>
-    <p>詳細：<%= @volunteer.describe %></p>
     <p>カテゴリー</p>
     <div class="col-12 clearfix">
       <div class="float-left">
@@ -34,14 +33,19 @@
     </div>
     <p><span>受注した人数: </span><%= @volunteer.contractors.count %></p>
     <p><span>受注した人</span></p>
-    <div class="col-12 clearfix">
+    <ul>
+      <% @volunteer.contractors.each do |vc| %>
+        <li><a href="/users/<%= vc.id %>"><%= "#{vc.name.truncate(10)}" %></a></li>
+      <% end %>
+    </ul>
+    <!-- <div class="col-12 clearfix">
       <div class="float-left">
-        <table>
+        <table style="table-layout:fixed;width:100%;">
           <thead>
             <tr>
               <th>
                 <% @volunteer.contractors.each do |vc| %>
-                  <%= vc.name %>
+                  <a href="/users/<%= vc.id %>"><%= "#{vc.name.truncate(10)}" %></a>
                 <% end %>
               </th>
             </tr>
@@ -63,10 +67,10 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </div> -->
     <br>
   </div>
-  <div class="col">
+  <div class="col-7">
     <p>
       <% if @volunteer.image? && @volunteer.image.url %>
         <%= image_tag @volunteer.image.url, class: 'rounded-circle mx-auto', size: '300x300' %>
@@ -74,6 +78,8 @@
         <image src="/assets/default.png" class="rounded-circle mx-auto d-block" width="350" height="300" >
       <% end %>
     </p>
+    <textarea name="name" rows="6" cols="60" class="form-control" STYLE="background-color:#fff;" readonly><%= @volunteer.describe %></textarea>
+    <br>
     <!-- 受注機能 -->
     <%= render 'order_managements/order' %>
   </div>
