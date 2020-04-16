@@ -18,20 +18,21 @@
   </div>
   <div class="col">
     <% if @user.icon.present? %>
-      <%= image_tag @user.icon_url, class: 'rounded-circle', size: '300x300' %>
+      <%= image_tag @user.icon_url, class: 'rounded-circle mx-auto d-block', size: '300x300' %>
+    <% else %>
+      <image src="/assets/default.png" class="icon rounded-circle mx-auto d-block" width="300" height="300" >
+    <% end %>
+    <br>
+    <% if user_signed_in? %>
+      <%= render 'good_evaluations/evaluate_button', user: @user %>
+      <% if current_user.id == @user.id && @user.email != "test@email.com" %>
+        <%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id), class: "btn btn-primary btn-block" %>
+        <br>
+        <% if current_user.try(:admin?) %>
+          <%= link_to "管理画面", "/admin" %>
+          <%= link_to "カテゴリーリスト", categories_path %>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
-
-
-<% if user_signed_in? %>
-  <%= render 'good_evaluations/evaluate_button', user: @user %>
-  <% if current_user.id == @user.id && @user.email != "test@email.com" %>
-    <%= link_to "プロフィールを編集", edit_user_registration_path(current_user.id), class: "btn btn-primary" %>
-    <br>
-    <% if current_user.try(:admin?) %>
-      <%= link_to "管理画面", "/admin" %>
-      <%= link_to "カテゴリーリスト", categories_path %>
-    <% end %>
-  <% end %>
-<% end %>
