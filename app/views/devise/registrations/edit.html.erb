@@ -16,8 +16,28 @@
   <br>
 
   <div class="field">
-    <%= f.label :icon %><br />
-    <%= f.file_field :icon, autofocus: true, class: 'btn btn-info'  %>
+    <%= f.file_field :icon ,autofocus: true, id: :user_img %>
+    <% if @user.icon.present? %>
+      <%= image_tag @user.icon.url, id: :img_prev %>
+    <% else %>
+      <%= image_tag "default.png", id: :img_prev %>
+    <% end %>
+    <script type="text/javascript">
+      $(function() {
+        function readURL(input) {
+          if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+        $('#img_prev').attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+          }
+        }
+        $("#user_img").change(function(){
+          readURL(this);
+        });
+      });
+    </script>
   </div>
   <br>
 
@@ -38,7 +58,7 @@
       <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
     <% end %>
   </div>
-  
+
   <br>
   <div class="field">
     <%= f.label :password_confirmation %><br />
