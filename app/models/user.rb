@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :reverse_good_evaluations, class_name: 'GoodEvaluation', foreign_key: 'evaluate_user_id'
   has_many :evaluated_users, through: :reverse_good_evaluations, source: :user
   mount_uploader :icon, ImageUploader
+  validates :name, presence: true
 
   def evaluate(other_user)
     unless self == other_user
