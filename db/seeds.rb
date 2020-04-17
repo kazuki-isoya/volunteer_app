@@ -9,28 +9,31 @@
   introduction: "テストユーザーはプロフィールを編集できません。"
 )
 
-@hoge = User.create(
-  name: "hoge",
-  email: "hoge@email.com",
+@nobita = User.create(
+  name: "nobita",
+  email: "nobita@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
-  admin: false
+  admin: false,
+  introduction: "特技は昼寝、あやとり、射撃"
 )
 
-@mogu = User.create(
-  name: "mogu",
-  email: "mogu@email.com",
+@cloud = User.create(
+  name: "cloud",
+  email: "cloud@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
-  admin: false
+  admin: false,
+  introduction: "興味ないね"
 )
 
-@leef = User.create(
-  name: "leef",
-  email: "leef@email.com",
+@shulk = User.create(
+  name: "shulk",
+  email: "shulk@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
-  admin: false
+  admin: false,
+  introduction: "穏やかじゃないですね"
 )
 
 @jojo = User.create(
@@ -38,7 +41,8 @@
   email: "jojo@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
-  admin: false
+  admin: false,
+  introduction: "やれやれだぜ"
 )
 
 @zero = User.create(
@@ -46,15 +50,17 @@
   email: "zero@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
-  admin: false
+  admin: false,
+  introduction: "撃って良いのは撃たれる覚悟のあるやつだけだ"
 )
 
-@syaa = User.create(
-  name: "syas",
-  email: "syaa@email.com",
+@char = User.create(
+  name: "char",
+  email: "char@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
-  admin: false
+  admin: false,
+  introduction: "地球が保たん時が来ているのだ"
 )
 
 @shin = User.create(
@@ -62,23 +68,26 @@
   email: "shin@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
-  admin: false
+  admin: false,
+  introduction: "また戦争がしたいのか、あんたたちは"
 )
 
-@ben = User.create(
-  name: "ben",
-  email: "ben@email.com",
+@eripiyo = User.create(
+  name: "eripiyo",
+  email: "eripiyo@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
-  admin: false
+  admin: false,
+  introduction: "舞菜が武道館行ってくれたら死ぬ"
 )
 
-@jibu = User.create(
-  name: "jibu",
-  email: "jibu@email.com",
+@ikirito = User.create(
+  name: "ikirito",
+  email: "ikirito@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
-  admin: false
+  admin: false,
+  introduction: "おれはソロだ"
 )
 
 @van = User.create(
@@ -86,20 +95,21 @@
   email: "van@email.com",
   icon:File.open("./public/images/default.png"),
   password: "password",
-  admin: false
+  admin: false,
+  introduction: "私は大砲よ"
 )
 
 
-FactoryBot.create(:volunteer, user: @user)
-FactoryBot.create(:volunteer, title: "test_volunteer", user: @test)
-FactoryBot.create(:volunteer, title: "hoge", user: @hoge)
-FactoryBot.create(:volunteer, title: "mogu", user: @mogu)
-FactoryBot.create(:volunteer, title: "leef", user: @leef)
-FactoryBot.create(:volunteer, title: "jojo", user: @jojo)
-FactoryBot.create(:volunteer, title: "zero", user: @zero)
-FactoryBot.create(:volunteer, title: "syaa", user: @syaa)
-FactoryBot.create(:volunteer, title: "shin", user: @shin)
-FactoryBot.create(:volunteer, title: "ben", user: @ben)
+FactoryBot.create(:volunteer, title: "アプリ作成に協力して", user: @user)
+FactoryBot.create(:volunteer, title: "薬を届けて", capacity: 1, user: @test)
+FactoryBot.create(:volunteer, title: "宿題を手伝って", capacity: 1, user: @nobita)
+FactoryBot.create(:volunteer, title: "腕自慢求む", capacity: 2, user: @cloud)
+FactoryBot.create(:volunteer, title: "研究の手伝い", user: @shulk)
+FactoryBot.create(:volunteer, title: "エジプトへDIOを倒しに行く仲間募集", user: @jojo)
+FactoryBot.create(:volunteer, title: "口裏を合わせて欲しい", capacity: 2, user: @zero)
+FactoryBot.create(:volunteer, title: "アクシズを落とすのを手伝って", capacity: 100, user: @char)
+FactoryBot.create(:volunteer, title: "フリーダムを倒したい", user: @shin)
+FactoryBot.create(:volunteer, title: "スモークの材料が欲しい", user: @van)
 
 Category.create(name: "誰でも歓迎", icon:File.open("./public/images/welcom.jpg"))
 Category.create(name: "力仕事", icon:File.open("./public/images/power.png"))

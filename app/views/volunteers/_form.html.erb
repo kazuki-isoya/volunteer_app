@@ -23,9 +23,9 @@
   <div class="field">
     <%= form.file_field :image, id: :volunteer_img %>
     <% if @volunteer.image.present? %>
-      <%= image_tag @volunteer.image.url, id: :img_prev %>
+      <%= image_tag @volunteer.image.url, id: :img_prev, size: '400' %>
     <% else %>
-      <%= image_tag "default.png", id: :img_prev %>
+      <%= image_tag "default.png", id: :img_prev, size: '400' %>
     <% end %>
     <script type="text/javascript">
       $(function() {
