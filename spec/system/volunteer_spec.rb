@@ -4,7 +4,7 @@ RSpec.describe 'ボランティア機能', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @volunteer = FactoryBot.create(:volunteer, user: @user)
-    visit root_path
+    visit volunteers_path
     click_on 'ログインする'
     sleep 1
     fill_in 'user_email', with: 'user@email.com'
@@ -32,7 +32,7 @@ RSpec.describe 'ボランティア機能', type: :system do
   end
 
   it 'ボランティアを削除' do
-    visit root_path
+    visit volunteers_path
     click_on '依頼を削除'
     page.driver.browser.switch_to.alert.accept #confirmダイアログでOKを押す
     expect(page).to have_content "ボランティアを削除しました。"

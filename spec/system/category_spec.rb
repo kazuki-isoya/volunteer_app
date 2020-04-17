@@ -5,7 +5,7 @@ RSpec.describe 'ユーザー評価機能', type: :system do
     @user = FactoryBot.create(:user)
     @user2 = FactoryBot.create(:user, name: "user2", email: "user2@email.com", admin: false)
     @category = FactoryBot.create(:category)
-    visit root_path
+    visit volunteers_path
     click_on 'ログインする'
     sleep 1
     fill_in 'user_email', with: 'user@email.com'

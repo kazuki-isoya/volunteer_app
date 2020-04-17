@@ -6,7 +6,7 @@ RSpec.describe 'ボランティア受注機能', type: :system do
     @user2 = FactoryBot.create(:user, name: "user2", email: "user2@email.com", admin: false)
     @user3 = FactoryBot.create(:user, name: "user3", email: "user3@email.com", admin: false)
     @volunteer = FactoryBot.create(:volunteer, capacity: 1, user: @user2)
-    visit root_path
+    visit volunteers_path
     click_on 'ログインする'
     sleep 1
     fill_in 'user_email', with: 'user@email.com'

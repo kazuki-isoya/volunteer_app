@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'ユーザー機能', type: :system do
   before do
     @user = FactoryBot.create(:user)
-    visit root_path
+    visit volunteers_path
   end
 
   it 'ユーザー情報を入力してログインする' do

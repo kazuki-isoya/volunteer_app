@@ -46,7 +46,7 @@ class CategoriesController < ApplicationController
 
   def admin_user?
     unless current_user.admin == true
-      redirect_to root_path, alert: '権限がありません'
+      redirect_to volunteers_path, alert: '権限がありません'
     end
   end
 
