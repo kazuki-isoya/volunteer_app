@@ -49,7 +49,7 @@
       <% end %>
     </p>
     <strong>ボランティア詳細</strong>
-    <textarea name="name" rows="6" cols="60" class="form-control" STYLE="background-color:#fff;" readonly><%= @volunteer.describe %></textarea>
+    <textarea name="name" rows="6" cols="60" class="form-control" placeholder="ボランティア詳細" STYLE="background-color:#fff;" readonly><%= @volunteer.describe %></textarea>
     <br>
     <!-- 受注機能 -->
     <%= render 'order_managements/order' %>
