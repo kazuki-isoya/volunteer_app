@@ -12,7 +12,7 @@
   <body>
 
     <nav class="navbar navbar-expand navbar-light" style="background-color:#33FF66;" >
-      <a class="navbar-brand" href="/"><image src="/assets/volunteer_nav.png" width="50" height="50" class="rounded-circle" ></a>
+      <a class="navbar-brand" href="/"><%= image_tag "volunteer_nav.png", class: 'rounded-circle', size: '50x50' %></a>
       <%= link_to "VolunteerApp", volunteers_path, id: "logo", class: "navbar-brand text-light" %>
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
