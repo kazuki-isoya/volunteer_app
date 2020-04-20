@@ -4,7 +4,7 @@ lock '3.6.0'
 set :application, 'volunteer_app'
 # cloneするgitのレポジトリ
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
-set :repo_url, 'git@github.com:kazuki-isoya/volunteer_app.git'
+set :repo_url, 'https://github.com/kazuki-isoya/volunteer_app.git'
 # deployするブランチ。デフォルトはmasterなのでなくても可。
 set :branch, ENV['BRANCH'] || 'master'
 # deploy先のディレクトリ。
