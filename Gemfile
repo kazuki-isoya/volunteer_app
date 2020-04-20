@@ -59,7 +59,6 @@ gem 'seed-fu'
 gem 'faker'
 gem 'factory_bot_rails'
 gem 'dotenv-rails'
-gem 'fog-aws'
 gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
 gem 'ed25519'
