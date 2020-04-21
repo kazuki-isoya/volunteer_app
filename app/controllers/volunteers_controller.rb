@@ -3,7 +3,7 @@ class VolunteersController < ApplicationController
   before_action :set_volunteer, only: [:edit, :update, :show, :destroy]
   before_action :search_params, only: [:search]
 
-  PER = 8
+  PER = 10
 
   def index
     @q = Volunteer.ransack(params[:q])

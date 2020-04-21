@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   resources :categories
 
 
-  root 'volunteers#index'
+  root 'top#index'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" # if Rails.env.development?
 end

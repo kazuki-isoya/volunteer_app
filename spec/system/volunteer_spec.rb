@@ -13,6 +13,7 @@ RSpec.describe 'ボランティア機能', type: :system do
   end
 
   it 'ボランティアを新規登録' do
+    visit volunteers_path
     click_on '新規登録'
     fill_in 'volunteer_title', with: 'rspec_test_title'
     fill_in 'volunteer_describe', with: 'rspec_test_describe'
@@ -32,8 +33,8 @@ RSpec.describe 'ボランティア機能', type: :system do
   end
 
   it 'ボランティアを削除' do
-    visit volunteers_path
-    click_on '依頼を削除'
+    visit volunteer_path(@volunteer.id)
+    click_on '削除'
     page.driver.browser.switch_to.alert.accept #confirmダイアログでOKを押す
     expect(page).to have_content "ボランティアを削除しました。"
   end
@@ -43,6 +44,7 @@ RSpec.describe 'ボランティア機能', type: :system do
       @search = FactoryBot.create(:volunteer, title: 'search', user: @user)
     end
     it '検索機能' do
+      visit volunteers_path
       fill_in 'q_title_cont', with: 'search'
       select '指定なし', from: 'カテゴリー'
       click_on 'search_btn'
