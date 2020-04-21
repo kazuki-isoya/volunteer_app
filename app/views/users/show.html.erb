@@ -18,9 +18,9 @@
   </div>
   <div class="col-6">
     <% if @user.icon.present? %>
-      <%= image_tag @user.icon_url, class: 'rounded-circle mx-auto d-block', size: '300x300' %>
+      <%= image_tag @user.icon_url, class: 'mx-auto d-block show_icon' %>
     <% else %>
-      <image src="/assets/default.png" class="icon rounded-circle mx-auto d-block" width="300" height="300" >
+      <image src="/assets/default.png" class="icon mx-auto d-block show_icon" >
     <% end %>
     <br>
     <% if user_signed_in? %>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VolunteerApp</title>
+    <title>VolunteerUp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -13,7 +13,7 @@
 
     <nav class="navbar navbar-expand navbar-light" style="background-color:#33FF66;" >
       <a class="navbar-brand" href="/"><%= image_tag "volunteer_nav.png", class: 'rounded-circle', size: '50x50' %></a>
-      <%= link_to "VolunteerApp", volunteers_path, id: "logo", class: "navbar-brand text-light" %>
+      <%= link_to "VolunteerUp", volunteers_path, id: "logo", class: "navbar-brand text-light" %>
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item"><%= link_to "ボランティア一覧", volunteers_path, class: "nav-link" %></li>

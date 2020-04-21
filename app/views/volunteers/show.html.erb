@@ -43,9 +43,9 @@
   <div class="col-7">
     <p>
       <% if @volunteer.image? && @volunteer.image.url %>
-        <%= image_tag @volunteer.image.url, class: 'rounded-circle mx-auto', size: '300x300' %>
+        <%= image_tag @volunteer.image.url, class: 'mx-auto d-block show_icon' %>
       <% else %>
-        <image src="/assets/default.png" class="rounded-circle mx-auto d-block" width="350" height="300" >
+        <image src="/assets/default.png" class="mx-auto d-block show_icon" >
       <% end %>
     </p>
     <strong>ボランティア詳細</strong>

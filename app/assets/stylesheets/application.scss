@@ -1,10 +1,24 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
-// body {
-//   background-image: url('vol_top.jpg');
-// }
+#img_prev {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+}
 
-// nav {
-//   background-color: #DDFFFF;
-// }
+.top_icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.show_icon {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.category_list {
+  font-size: 50%;
+}
