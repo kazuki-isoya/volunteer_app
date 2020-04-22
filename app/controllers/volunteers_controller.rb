@@ -8,7 +8,7 @@ class VolunteersController < ApplicationController
   def index
     @q = Volunteer.ransack(params[:q])
     @categories = Category.all
-    @volunteers = @q.result.includes(:user, :categorizings, :categories).page(params[:page]).order(created_at: :desc).per(PER)
+    @volunteers = @q.result.includes(:user).page(params[:page]).order(created_at: :desc).per(PER)
   end
 
   def search
