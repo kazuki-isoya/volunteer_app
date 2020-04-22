@@ -10,7 +10,7 @@ class Volunteer < ApplicationRecord
   validates :describe, presence: true, length: {maximum: 300}
   validates :address, presence: true, length: {maximum: 300}
   validates :date, presence: true
-  validates :capacity, presence: true
+  validates :capacity, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 1}
 
   validate :date_is_not_past
 
