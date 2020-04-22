@@ -15,7 +15,7 @@ class GoodEvaluationsController < ApplicationController
   def destroy
     evaluating= current_user.unevaluate(@user)
     if evaluating.destroy
-      flash[:notice] = "#{@user.name}の評価を取り消しました。"
+      flash[:alert] = "#{@user.name}の評価を取り消しました。"
       redirect_to @user
     else
       flash.now[:alert] = 'ユーザーの評価の取り消しに失敗しました。'

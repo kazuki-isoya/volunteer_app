@@ -18,7 +18,11 @@
   </tr>
   <% @volunteers.each do |volunteer| %>
     <tr>
-      <td class="icon"><%= volunteer.user.name %><br><%= image_tag volunteer.user.icon_url, class: "top_icon rounded-circle" %></td>
+      <td class="icon">
+        <a href="/users/<%= volunteer.user.id %>"><%= volunteer.user.name %></a>
+        <br>
+        <a href="/users/<%= volunteer.user.id %>"><%= image_tag volunteer.user.icon_url, class: "top_icon rounded-circle" %></a>
+      </td>
       <td><a href="/volunteers/<%= volunteer.id %>"><%= volunteer.title.truncate(10) %></a></td>
       <td><%= volunteer.describe.truncate(20) %></td>
       <td><%= "#{volunteer.contractors.count}人/#{volunteer.capacity}人" %></td>
