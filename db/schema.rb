@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 2020_04_16_061800) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", default: "no name", null: false
-    t.string "icon", default: "no image"
+    t.string "name", default: "", null: false
+    t.string "icon", default: ""
     t.boolean "admin", default: false, null: false
     t.text "introduction", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -80,11 +80,11 @@ ActiveRecord::Schema.define(version: 2020_04_16_061800) do
   end
 
   create_table "volunteers", force: :cascade do |t|
-    t.string "title", default: "no title", null: false
-    t.text "describe", default: "no describe", null: false
+    t.string "title", default: "", null: false
+    t.text "describe", default: "", null: false
     t.string "image"
-    t.text "address", default: "no address", null: false
-    t.datetime "date", default: "2020-04-22 14:07:19", null: false
+    t.text "address", default: "", null: false
+    t.datetime "date", default: "2020-05-22 14:25:14", null: false
     t.integer "capacity", default: 4, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
