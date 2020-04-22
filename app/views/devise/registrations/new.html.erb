@@ -5,13 +5,13 @@
 
   <div class="field col-sm-12 col-md-10 col-lg-8">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class: 'form-control'  %>
+    <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: '名前を入力'  %>
   </div>
   <br>
 
   <div class="field col-sm-12 col-md-10 col-lg-8">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'メールアドレスを入力' %>
   </div>
   <br>
 
@@ -39,7 +39,7 @@
 
   <div class="field col-sm-12 col-md-10 col-lg-8">
     <%= f.label "自己紹介文" %><br />
-    <%= f.text_area :introduction, autofocus: true, class: 'form-control'  %>
+    <%= f.text_area :introduction, autofocus: true, class: 'form-control', placeholder: '自己紹介を入力'  %>
   </div>
   <br>
 
@@ -48,13 +48,13 @@
     <% if @minimum_password_length %>
     <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'パスワードを入力' %>
   </div>
   <br>
 
   <div class="field col-sm-12 col-md-10 col-lg-8">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: '確認用パスワードを入力' %>
   </div>
   <br>
 
