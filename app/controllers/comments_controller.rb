@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
       if @comment.save
         format.js { render :index }
       else
-        format.html { redirect_to volunteer_path(@volunteer), notice: '投稿できませんでした' }
+        # format.html { redirect_to volunteer_path(@volunteer), notice: '投稿できませんでした' }
+        format.js { render :index }
       end
     end
   end
@@ -29,8 +30,9 @@ class CommentsController < ApplicationController
         flash.now[:notice] = 'コメントが編集されました'
         format.js { render :index }
       else
-        flash.now[:notice] = 'コメントの編集に失敗しました'
-        format.js { redirect_to volunteer_path(@volunteer), notice: '編集できませんでした' }
+        # flash.now[:notice] = 'コメントの編集に失敗しました'
+        # format.js { redirect_to volunteer_path(@volunteer), notice: '編集できませんでした' }
+        format.js { render :index }
       end
     end
   end
