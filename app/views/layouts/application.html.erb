@@ -22,6 +22,7 @@
             </li>
             <li class="nav-list-item"><%= link_to "ログアウトする", destroy_user_session_path, method: :delete , class: "nav-list-item"%></li>
           <% else %>
+            <li class="nav-list-item"><%= link_to "ボランティア一覧", volunteers_path, class: "nav-list-item" %></li>
             <li class="nav-list-item"><%= link_to "新規ユーザー登録", new_user_registration_path, class: "nav-list-item" %></li>
             <li class="nav-list-item"><%= link_to "ログインする", new_user_session_path, class: "nav-list-item" %></li>
           <% end %>
@@ -34,6 +35,22 @@
       <br>
       <%= yield %>
     </div>
+    <footer>
+      <nav class="" >
+        <ul class="nav-list">
+          <% if user_signed_in? %>
+            <li class="nav-list-item"><%= link_to "ボランティア一覧", volunteers_path, class: "nav-list-item" %></li>
+            <li class="nav-list-item">
+              <%= link_to "#{current_user.name}のプロフィール", user_path(current_user.id), class: "nav-list-item" %>
+            </li>
+            <li class="nav-list-item"><%= link_to "ログアウトする", destroy_user_session_path, method: :delete , class: "nav-list-item"%></li>
+          <% else %>
+            <li class="nav-list-item"><%= link_to "ボランティア一覧", volunteers_path, class: "nav-list-item" %></li>
+            <li class="nav-list-item"><%= link_to "新規ユーザー登録", new_user_registration_path, class: "nav-list-item" %></li>
+            <li class="nav-list-item"><%= link_to "ログインする", new_user_session_path, class: "nav-list-item" %></li>
+          <% end %>
+        </ul>
+    </footer>
   </body>
 </html>
 
@@ -43,8 +60,8 @@
     height: 200px;
     text-align: center;
     color: #FF99CC;
-    background-image: url("/assets/sora.jpg");
-    background-position: center bottom;
+    background-image: url("/assets/inaka.jpg");
+    background-position: center top;
     background-size: cover;
   }
   header .header-log {
@@ -62,5 +79,17 @@
     display: inline-block;
     margin: 0 20px;
     color: #FFF;
+  }
+  footer {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    background-image: url("/assets/inaka.jpg");
+    background-position: center bottom;
+    background-size: cover;
+  }
+
+  footer .nav-list-item:hover {
+    color:#fff;
   }
 </style>

@@ -1,8 +1,9 @@
 <div class="row">
-  <div class="col-4">
-    <h3>ボランティア依頼一覧</h3>
+  <div class="col-12 text-center font-weight-bolder">
+    <h2>ボランティア依頼一覧</h2>
+    <br>
   </div>
-  <div class="col-8">
+  <div class="col-12">
     <%= render 'search_form' %>
   </div>
 </div>
@@ -24,7 +25,7 @@
         <a href="/users/<%= volunteer.user.id %>"><%= image_tag volunteer.user.icon_url, class: "top_icon rounded-circle" %></a>
       </td>
       <td><a href="/volunteers/<%= volunteer.id %>"><%= volunteer.title.truncate(10) %></a></td>
-      <td><%= volunteer.describe.truncate(20) %></td>
+      <td class="describe"><%= volunteer.describe.truncate(20) %></td>
       <td><%= "#{volunteer.contractors.count}人/#{volunteer.capacity}人" %></td>
     </tr>
   <% end %>
@@ -50,9 +51,13 @@
   }
 
   table th,table td{
-    text-align: left;
+    text-align: center;
     width: 25%;
     padding: 15px 0;
+  }
+
+  .describe {
+    text-align: left;
   }
 
   table td.icon{
