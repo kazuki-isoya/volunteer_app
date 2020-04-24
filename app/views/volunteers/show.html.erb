@@ -9,26 +9,14 @@
     <p><strong>カテゴリー</strong></p>
     <div class="col-12 clearfix">
       <div class="float-left">
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <% @volunteer.categories.each do |vc| %>
-                  <%= vc.name %>
-                <% end %>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <% @volunteer.categories.each do |vc| %>
-                  <%= image_tag vc.icon.url, class: 'rounded-circle', size: '100x100' %>
-                <% end %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="row">
+          <% @volunteer.categories.each do |vc| %>
+          <div class="col-4 text-center">
+            <%= vc.name %>
+            <%= image_tag vc.icon.url, class: 'rounded-circle', size: '100x100' %>
+          </div>
+          <% end %>
+        </div>
       </div>
     </div>
     <p><strong>受注した人数 </strong><%= @volunteer.contractors.count %>人</p>
@@ -48,8 +36,22 @@
         <image src="/assets/default.png" class="mx-auto d-block show_icon" >
       <% end %>
     </p>
-    <strong>ボランティア詳細</strong>
-    <textarea name="name" rows="6" cols="60" class="form-control" placeholder="ボランティア詳細" STYLE="background-color:#fff;" readonly><%= @volunteer.describe %></textarea>
+    <div class="accordion" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="card">
+        <div class="card-header" role="tab" id="headingOne">
+          <h5 class="mb-0">
+            <a class="text-body d-block p-3 m-n3 text-center" data-toggle="collapse" href="#collapseOne" role="button" aria-expanded="true" aria-controls="collapseOne">
+              ボランティア詳細
+            </a>
+          </h5>
+        </div><!-- /.card-header -->
+        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <%= @volunteer.describe %>
+          </div><!-- /.card-body -->
+        </div><!-- /.collapse -->
+      </div><!-- /.card -->
+    </div><!-- /#accordion -->
     <br>
     <!-- 受注機能 -->
     <%= render 'order_managements/order' %>
