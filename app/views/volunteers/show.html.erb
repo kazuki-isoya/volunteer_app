@@ -2,10 +2,38 @@
 
   <div class="col-5">
     <h3><%= @volunteer.title %></h3>
-    <p><strong>依頼者</strong> <a href="/users/<%= @volunteer.user.id %>"><%= "#{@volunteer.user.name.truncate(10)}" %></a></p>
-    <p><strong>住所</strong> <%= @volunteer.address %> <a href="https://www.google.co.jp/maps" target="_blank">Map</a></p>
-    <p><strong>ステータス</strong> <%= "受注者#{@volunteer.contractors.count}人/定員#{@volunteer.capacity}人" %></p>
-    <p><strong>日付</strong> <%= @volunteer.date %></p>
+    <table class="table">
+      <tr>
+        <td>依頼者</td>
+        <td><a href="/users/<%= @volunteer.user.id %>"><%= "#{@volunteer.user.name.truncate(10)}" %></a></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td><%= @volunteer.address %> <a href="https://www.google.co.jp/maps" target="_blank">Map</a></td>
+      </tr>
+      <tr>
+        <td>ステータス</td>
+        <td><%= "受注者#{@volunteer.contractors.count}人/定員#{@volunteer.capacity}人" %></td>
+      </tr>
+      <tr>
+        <td>日付</td>
+        <td><%= l @volunteer.date %></td>
+      </tr>
+      <tr>
+        <td>受注した人数</td>
+        <td><%= @volunteer.contractors.count %>人</td>
+      </tr>
+      <tr>
+        <td>受注した人</td>
+        <td>
+          <ul>
+            <% @volunteer.contractors.each do |vc| %>
+              <li><a href="/users/<%= vc.id %>"><%= "#{vc.name.truncate(10)}" %></a></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    </table>
     <p><strong>カテゴリー</strong></p>
     <div class="col-12 clearfix">
       <div class="float-left">
@@ -19,14 +47,6 @@
         </div>
       </div>
     </div>
-    <p><strong>受注した人数 </strong><%= @volunteer.contractors.count %>人</p>
-    <p><strong>受注した人 </strong></p>
-    <ul>
-      <% @volunteer.contractors.each do |vc| %>
-        <li><a href="/users/<%= vc.id %>"><%= "#{vc.name.truncate(10)}" %></a></li>
-      <% end %>
-    </ul>
-    <br>
   </div>
   <div class="col-7">
     <p>

@@ -1,20 +1,36 @@
 <h2><%= "#{@user.name}のプロフィール" %></h2>
 <div class="row">
   <div class="col-6">
-    <p>メールアドレス：<%= @user.email %></p>
-    <p>評価したユーザー数：<%= @user.evaluated_users.count %>人</p>
-    <p>依頼しているボランティア</p>
-    <ul>
-      <% @user.volunteers.each do |v| %>
-        <li><a href="/volunteers/<%= v.id %>"><%= "#{v.title.truncate(10)}" %></a></li>
-      <% end %>
-    </ul>
-    <p>受注しているボランティア</p>
-    <ul>
-      <% @user.ordered_volunteers.each do |ov| %>
-        <li><a href="/volunteers/<%= ov.id %>"><%= "#{ov.title.truncate(10)}" %></a></li>
-      <% end %>
-    </ul>
+    <table class="table">
+      <tr>
+        <td>メールアドレス</td>
+        <td class="text-center"><%= @user.email %></td>
+      </tr>
+      <tr>
+        <td>評価したユーザー数</td>
+        <td class="text-center"><%= @user.evaluated_users.count %>人</td>
+      </tr>
+      <tr>
+        <td>依頼しているボランティア</td>
+        <td>
+          <ul>
+            <% @user.volunteers.each do |v| %>
+              <li><a href="/volunteers/<%= v.id %>"><%= "#{v.title.truncate(10)}" %></a></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>受注しているボランティア</td>
+        <td>
+          <ul>
+            <% @user.ordered_volunteers.each do |ov| %>
+              <li><a href="/volunteers/<%= ov.id %>"><%= "#{ov.title.truncate(10)}" %></a></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    </table>
   </div>
   <div class="col-6">
     <% if @user.icon.present? %>
@@ -62,5 +78,4 @@
   ul {
     list-style: none;
   }
-
 </style>
