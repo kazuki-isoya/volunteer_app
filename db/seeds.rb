@@ -3,7 +3,7 @@
 @test = User.create(
   name: "test",
   email: "test@email.com",
-  icon: open("./app/assets/images/hito.jpg"),
+  icon: open("./public/images/hito.jpg"),
   password: "password",
   admin: false,
   introduction: "テストユーザーはプロフィールを編集できません。"
@@ -12,7 +12,7 @@
 @nobita = User.create(
   name: "のび太",
   email: "nobita@email.com",
-  icon: open("./app/assets/images/nobita.png"),
+  icon: open("./public/images/nobita.png"),
   password: "password",
   admin: false,
   introduction: "特技は昼寝、あやとり、射撃"
@@ -21,7 +21,7 @@
 @cloud = User.create(
   name: "クラウド",
   email: "cloud@email.com",
-  icon: open("./app/assets/images/cloud.jpg"),
+  icon: open("./public/images/cloud.jpg"),
   password: "password",
   admin: false,
   introduction: "元ソルジャー1st。"
@@ -30,7 +30,7 @@
 @miyano = User.create(
   name: "宮野志保",
   email: "miyano@email.com",
-  icon: open("./app/assets/images/miyano.jpg"),
+  icon: open("./public/images/miyano.jpg"),
   password: "password",
   admin: false,
   introduction: "本当は18歳よ"
@@ -39,7 +39,7 @@
 @sato = User.create(
   name: "佐藤洋子",
   email: "sato@email.com",
-  icon: open("./app/assets/images/hito2.png"),
+  icon: open("./public/images/hito2.png"),
   password: "password",
   admin: false,
   introduction: "ハッピーうれぴーよろぴくねー"
@@ -48,7 +48,7 @@
 @amuro = User.create(
   name: "安室透",
   email: "zero@email.com",
-  icon: open("./app/assets/images/amuro.jpg"),
+  icon: open("./public/images/amuro.jpg"),
   password: "password",
   admin: false,
   introduction: "黒の組織のスパイで公安の刑事でカフェの店員です"
@@ -57,7 +57,7 @@
 @char = User.create(
   name: "シャア",
   email: "char@email.com",
-  icon: open("./app/assets/images/char.jpg"),
+  icon: open("./public/images/char.jpg"),
   password: "password",
   admin: false,
   introduction: "本当は総帥です。大佐は愛称です。"
@@ -74,7 +74,7 @@
 @eripiyo = User.create(
   name: "えりぴよ",
   email: "eripiyo@email.com",
-  icon: open("./app/assets/images/eripiyo.jpeg"),
+  icon: open("./public/images/eripiyo.jpeg"),
   password: "password",
   admin: false,
   introduction: "岡山在住です。ChamJamのファンです。"
@@ -91,7 +91,7 @@
 @toho = User.create(
   name: "東方不敗",
   email: "toho@email.com",
-  icon: open("./app/assets/images/toho.jpg"),
+  icon: open("./public/images/toho.jpg"),
   password: "password",
   admin: false,
   introduction: "東方不敗は王者の風"
@@ -109,6 +109,6 @@ FactoryBot.create(:volunteer, title: "アクシズを落とす", describe: "ア�
 FactoryBot.create(:volunteer, title: "ライブに一緒に行って欲しい", describe: "ライブに行って一緒に舞菜を応援して欲しい。更にCDも買って欲しい。", user: @eripiyo)
 FactoryBot.create(:volunteer, title: "地球保護", describe: "地球環境を守るためデビルガンダムを復活させたい", capacity: 3, user: @toho)
 
-Category.create(name: "誰でも歓迎", icon:File.open("./app/assets/images/welcom.jpg"))
-Category.create(name: "力仕事", icon:File.open("./app/assets/images/power.png"))
-Category.create(name: "老若男女問わず", icon:File.open("./app/assets/images/peaple.png"))
+Category.create(name: "誰でも歓迎", icon:File.open("./public/images/welcom.jpg"))
+Category.create(name: "力仕事", icon:File.open("./public/images/power.png"))
+Category.create(name: "老若男女問わず", icon:File.open("./public/images/peaple.png"))
