@@ -22,7 +22,7 @@
       <td class="icon">
         <a href="/users/<%= volunteer.user.id %>"><%= volunteer.user.name %></a>
         <br>
-        <a href="/users/<%= volunteer.user.id %>"><%= image_tag volunteer.user.icon_url, class: "top_icon rounded-circle" %></a>
+        <a href="/users/<%= volunteer.user.id %>"><%= image_tag volunteer.user.icon.url, class: "top_icon rounded-circle" %></a>
       </td>
       <td><a href="/volunteers/<%= volunteer.id %>"><%= volunteer.title.truncate(10) %></a></td>
       <td class="describe"><%= volunteer.describe.truncate(20) %></td>
