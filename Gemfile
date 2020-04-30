@@ -63,3 +63,4 @@ gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+gem 'fog-aws'
