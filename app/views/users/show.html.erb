@@ -34,7 +34,7 @@
   </div>
   <div class="col-6">
     <% if @user.icon.present? %>
-      <%= image_tag @user.icon_url, class: 'mx-auto d-block show_icon' %>
+      <%= image_tag @user.icon.url, class: 'mx-auto d-block show_icon' %>
     <% else %>
       <image src="/assets/default.png" class="icon mx-auto d-block show_icon" >
     <% end %>
@@ -74,6 +74,7 @@
       </div><!-- /.collapse -->
     </div><!-- /.card -->
   </div><!-- /#accordion -->
+  <%= image_tag "hito2.png" %>
 <style>
   ul {
     list-style: none;
