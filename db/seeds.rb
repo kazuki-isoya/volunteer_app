@@ -3,7 +3,7 @@
 @test = User.create(
   name: "test",
   email: "test@email.com",
-  icon:File.open("./app/assets/images/hito.jpg"),
+  icon: open("./app/assets/images/hito.jpg"),
   password: "password",
   admin: false,
   introduction: "テストユーザーはプロフィールを編集できません。"
@@ -12,7 +12,7 @@
 @nobita = User.create(
   name: "のび太",
   email: "nobita@email.com",
-  icon:File.open("./app/assets/images/nobita.png"),
+  icon: open("./app/assets/images/nobita.png"),
   password: "password",
   admin: false,
   introduction: "特技は昼寝、あやとり、射撃"
@@ -21,7 +21,7 @@
 @cloud = User.create(
   name: "クラウド",
   email: "cloud@email.com",
-  icon:File.open("./app/assets/images/cloud.jpg"),
+  icon: open("./app/assets/images/cloud.jpg"),
   password: "password",
   admin: false,
   introduction: "元ソルジャー1st。"
@@ -30,7 +30,7 @@
 @miyano = User.create(
   name: "宮野志保",
   email: "miyano@email.com",
-  icon:File.open("./app/assets/images/miyano.jpg"),
+  icon: open("./app/assets/images/miyano.jpg"),
   password: "password",
   admin: false,
   introduction: "本当は18歳よ"
@@ -39,7 +39,7 @@
 @sato = User.create(
   name: "佐藤洋子",
   email: "sato@email.com",
-  icon:File.open("./app/assets/images/hito2.png"),
+  icon: open("./app/assets/images/hito2.png"),
   password: "password",
   admin: false,
   introduction: "ハッピーうれぴーよろぴくねー"
@@ -48,7 +48,7 @@
 @amuro = User.create(
   name: "安室透",
   email: "zero@email.com",
-  icon:File.open("./app/assets/images/amuro.jpg"),
+  icon: open("./app/assets/images/amuro.jpg"),
   password: "password",
   admin: false,
   introduction: "黒の組織のスパイで公安の刑事でカフェの店員です"
@@ -57,7 +57,7 @@
 @char = User.create(
   name: "シャア",
   email: "char@email.com",
-  icon:File.open("./app/assets/images/char.jpg"),
+  icon: open("./app/assets/images/char.jpg"),
   password: "password",
   admin: false,
   introduction: "本当は総帥です。大佐は愛称です。"
@@ -66,7 +66,6 @@
 @shin = User.create(
   name: "新庄狂死郎",
   email: "shin@email.com",
-  icon:File.open("./app/assets/images/default.png"),
   password: "password",
   admin: false,
   introduction: "中2です。"
@@ -75,7 +74,7 @@
 @eripiyo = User.create(
   name: "えりぴよ",
   email: "eripiyo@email.com",
-  icon:File.open("./app/assets/images/eripiyo.jpeg"),
+  icon: open("./app/assets/images/eripiyo.jpeg"),
   password: "password",
   admin: false,
   introduction: "岡山在住です。ChamJamのファンです。"
@@ -84,7 +83,6 @@
 @ikirito = User.create(
   name: "イキリト",
   email: "ikirito@email.com",
-  icon:File.open("./app/assets/images/default.png"),
   password: "password",
   admin: false,
   introduction: "言っとくがおれはソロだ"
@@ -93,7 +91,7 @@
 @toho = User.create(
   name: "東方不敗",
   email: "toho@email.com",
-  icon:File.open("./app/assets/images/toho.jpg"),
+  icon: open("./app/assets/images/toho.jpg"),
   password: "password",
   admin: false,
   introduction: "東方不敗は王者の風"

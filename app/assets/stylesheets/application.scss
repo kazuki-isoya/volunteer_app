@@ -1,6 +1,26 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
+header {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  color: #FF99CC;
+  background-image: image-url("inaka.jpg");
+  background-position: center top;
+  background-size: cover;
+}
+
+footer {
+  margin-top: 50px;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  background-image: image-url("inaka.jpg");
+  background-position: center bottom;
+  background-size: cover;
+}
+
 #img_prev {
   width: 250px;
   height: 250px;
