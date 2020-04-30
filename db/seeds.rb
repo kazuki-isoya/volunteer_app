@@ -1,5 +1,3 @@
-@user = FactoryBot.create(:user)
-
 @test = User.create(
   name: "test",
   email: "test@email.com",
@@ -8,6 +6,8 @@
   admin: false,
   introduction: "テストユーザーはプロフィールを編集できません。"
 )
+
+@user = FactoryBot.create(:user)
 
 @nobita = User.create(
   name: "のび太",
